@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import BackToTop from '@/components/BackToTop';
 import { WHATSAPP_URL } from '@/lib/contact';
 
 const Layout = ({ children }) => {
@@ -20,6 +21,8 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <Footer />
+
+      <BackToTop />
 
       {/* Botão flutuante de WhatsApp, visível em todas as páginas e tamanhos de tela */}
       <a
