@@ -2,50 +2,25 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check } from 'lucide-react';
+import { Check, MapPin, Users, Award, Target, Zap } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import ServiceBlocks from '@/components/ServiceBlocks';
+import StatsStrip from '@/components/StatsStrip';
 import { WHATSAPP_URL, CITY } from '@/lib/contact';
-import { fadeUp, reveal } from '@/lib/motion';
-import { cn } from '@/lib/utils';
+import { fadeUp, reveal, revealGroup } from '@/lib/motion';
 
-// Tons suaves por serviço: diferenciam sem pesar
-const SERVICE_PANELS = [
-  {
-    id: 'gestao-documentos',
-    title: 'Gestão de Documentos de SST',
-    text: 'Organizamos e mantemos atualizada toda a documentação obrigatória da sua empresa, pronta para auditorias e fiscalizações.',
-    items: ['Controle de prazos e validades', 'Organização centralizada', 'Atualização conforme a legislação'],
-    panel: 'bg-brand-green-soft',
-    title_: 'text-brand-navy',
-    body: 'text-brand-muted',
-    chip: 'bg-white text-brand-navy',
-    check: 'text-brand-green',
-    link: 'text-brand-green',
-  },
-  {
-    id: 'emissao-documentos',
-    title: 'Emissão de Documentos',
-    text: 'Elaboramos e emitimos os documentos que a lei exige para sua empresa funcionar com segurança.',
-    items: ['AVCB', 'CLCB', 'PGR', 'PCMSO'],
-    panel: 'bg-brand-blue-soft',
-    title_: 'text-brand-navy',
-    body: 'text-brand-muted',
-    chip: 'bg-white text-brand-navy',
-    check: 'text-brand-blue',
-    link: 'text-brand-blue',
-  },
-  {
-    id: 'treinamentos-nr',
-    title: 'Treinamentos NR',
-    text: 'Capacitamos sua equipe nas normas regulamentadoras, com certificado ao final.',
-    items: ['NR 05', 'NR 06', 'NR 11', 'NR 12', 'NR 23', 'NR 33', 'NR 35'],
-    panel: 'bg-brand-paper',
-    title_: 'text-brand-navy',
-    body: 'text-brand-muted',
-    chip: 'bg-white text-brand-navy',
-    check: 'text-brand-green',
-    link: 'text-brand-green',
-  },
+const REASONS = [
+  { icon: Users, title: 'Atendimento personalizado', text: 'Entendemos o porte, o setor e os riscos da sua operação antes de indicar qualquer solução.' },
+  { icon: Award, title: 'Profissionais qualificados', text: 'Equipe técnica atualizada nas normas regulamentadoras e na legislação vigente.' },
+  { icon: Target, title: 'Foco em prevenção', text: 'Antecipamos riscos para evitar acidentes, multas e paralisações.' },
+  { icon: Zap, title: 'Clareza e agilidade', text: 'Prazos definidos e comunicação direta do início ao fim do serviço.' },
+];
+
+const ABOUT_POINTS = [
+  { strong: 'Atuação desde 2022', rest: ' em saúde e segurança do trabalho' },
+  { strong: 'Gestão, emissão e treinamentos', rest: ' em um só lugar' },
+  { strong: 'Atendimento em toda a região', rest: ` de ${CITY}` },
+  { strong: 'Linguagem clara', rest: ', sem burocracia desnecessária' },
 ];
 
 const HomePage = () => {
@@ -59,121 +34,122 @@ const HomePage = () => {
         />
       </Helmet>
 
-      {/* Hero em azul da marca */}
-      <section className="relative isolate overflow-hidden bg-brand-blue text-white">
-        <div aria-hidden="true" className="absolute -left-32 -top-40 -z-10 h-[34rem] w-[34rem] rounded-full border-[60px] border-white/[0.07]" />
-
-        <div className="container grid items-center gap-12 py-16 lg:grid-cols-12 lg:gap-10 lg:py-24">
-          <motion.div variants={fadeUp} initial="hidden" animate="show" className="lg:col-span-7">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-base font-semibold text-white">
-              {CITY} e região
-            </span>
-            <h1 className="title-hero mt-6 text-white">
-              Sua empresa em dia. <span className="text-brand-green-bright">Sua equipe protegida.</span>
+      {/* Hero com foto */}
+      <section className="relative isolate overflow-hidden bg-brand-navy text-white">
+        <img
+          src="/images/hero-equipe.jpg"
+          alt=""
+          className="absolute inset-0 -z-20 h-full w-full object-cover"
+          fetchPriority="high"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-navy-deep/95 via-brand-navy/85 to-brand-navy/40"
+        />
+        <div className="container flex min-h-[560px] items-center py-20 lg:min-h-[640px]">
+          <motion.div variants={fadeUp} initial="hidden" animate="show" className="max-w-3xl">
+            <span className="label label-light">Bem-vindo à GB</span>
+            <h1 className="title-hero mt-5 text-white">
+              Gestão de <span className="text-brand-green-bright">Segurança do Trabalho</span> para sua empresa em {CITY}.
             </h1>
-            <p className="mt-8 max-w-xl text-xl leading-relaxed text-white/85 sm:text-2xl">
-              Documentos de segurança do trabalho e treinamentos NR para empresas que levam prevenção a sério.
+            <p className="mt-7 max-w-2xl text-xl leading-relaxed text-white/85">
+              Cuidamos dos documentos obrigatórios, emitimos o que a lei exige e treinamos sua equipe nas normas regulamentadoras.
             </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link to="/contato" className="btn btn-primary">
-                Solicitar orçamento
-                <ArrowRight className="h-5 w-5" aria-hidden="true" />
-              </Link>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-outline-light">
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 <WhatsAppIcon className="h-5 w-5" />
-                Falar no WhatsApp
+                Fale pelo WhatsApp
               </a>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="relative lg:col-span-5"
-          >
-            <img
-              src="/images/hero-equipe.jpg"
-              alt="Equipe de trabalhadores com capacetes e coletes refletivos em canteiro de obras, vistos de cima"
-              className="h-[320px] w-full rounded-3xl object-cover sm:h-[420px] lg:h-[540px]"
-              width="1600"
-              height="1067"
-              fetchPriority="high"
-            />
-            <div className="absolute -bottom-6 -left-2 rounded-2xl bg-brand-green px-6 py-4 shadow-xl sm:-left-6">
-              <p className="font-heading text-3xl font-extrabold leading-none text-white">2022</p>
-              <p className="mt-1 text-base text-white/85">atendendo a região</p>
+              <Link to="/servicos" className="btn btn-outline-light">
+                Conheça os serviços
+              </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Serviços em painéis coloridos */}
+      {/* Por que a GB */}
       <section className="section bg-white">
         <div className="container">
-          <motion.div {...reveal} className="mb-12 max-w-3xl lg:mb-16">
-            <span className="label">O que fazemos</span>
-            <h2 className="title-2 mt-3">Três serviços que mantêm sua empresa segura e dentro da lei.</h2>
+          <motion.div {...reveal}>
+            <span className="label">Por que a GB</span>
+            <h2 className="title-2 mt-4 max-w-2xl">Segurança do trabalho levada a sério, do começo ao fim.</h2>
           </motion.div>
-
-          <div className="space-y-6">
-            {SERVICE_PANELS.map((p) => (
-              <motion.article
-                key={p.id}
-                {...reveal}
-                className={cn('panel grid gap-8 lg:grid-cols-12 lg:items-center', p.panel)}
-              >
-                <div className="lg:col-span-6">
-                  <h3 className={cn('title-3', p.title_)}>{p.title}</h3>
-                  <p className={cn('mt-4', p.body)}>{p.text}</p>
-                  <Link to={`/servicos#${p.id}`} className={cn('link-arrow mt-6 underline-offset-4 hover:underline', p.link)}>
-                    Ver detalhes
-                    <ArrowRight className="h-5 w-5" aria-hidden="true" />
-                  </Link>
-                </div>
-                <ul className="flex flex-wrap gap-3 lg:col-span-6 lg:justify-end">
-                  {p.items.map((item) => (
-                    <li
-                      key={item}
-                      className={cn('inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-base font-semibold sm:text-lg', p.chip)}
-                    >
-                      <Check className={cn('h-4 w-4', p.check)} strokeWidth={3} aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.article>
+          <motion.ul {...revealGroup} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {REASONS.map((r) => (
+              <motion.li key={r.title} variants={fadeUp} className="card card-hover">
+                <span className="icon-box">
+                  <r.icon className="h-7 w-7" aria-hidden="true" />
+                </span>
+                <h3 className="title-4 mt-6">{r.title}</h3>
+                <p className="mt-3 text-brand-muted">{r.text}</p>
+              </motion.li>
             ))}
-          </div>
+          </motion.ul>
         </div>
       </section>
 
-      {/* Sobre */}
+      {/* Quem somos */}
       <section className="section bg-brand-paper">
-        <div className="container grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
-          <motion.div {...reveal} className="relative lg:col-span-5">
-            <div aria-hidden="true" className="absolute -right-4 -top-4 h-full w-full rounded-3xl bg-brand-blue" />
+        <div className="container grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
+          <motion.div {...reveal}>
+            <span className="label">Quem somos</span>
+            <h2 className="title-2 mt-4">Consultoria de Segurança do Trabalho em {CITY}</h2>
+            <p className="mt-6 text-brand-muted">
+              A GB Consultoria une conhecimento técnico em saúde e segurança do trabalho a uma leitura prática do dia a dia da sua empresa: <strong className="font-semibold text-brand-navy">menos risco, menos autuação e mais proteção</strong> para quem trabalha.
+            </p>
+            <ul className="mt-8 space-y-4">
+              {ABOUT_POINTS.map((p) => (
+                <li key={p.strong} className="flex items-start gap-3">
+                  <Check className="mt-1 h-5 w-5 shrink-0 text-brand-green" strokeWidth={3} aria-hidden="true" />
+                  <span>
+                    <strong className="font-semibold text-brand-navy">{p.strong}</strong>
+                    {p.rest}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <blockquote className="mt-9 border-l-4 border-brand-green pl-6">
+              <p className="title-4">Prevenção que salva, excelência que transforma.</p>
+              <p className="mt-2 text-brand-muted">Saúde ocupacional vai muito além de cumprir obrigações legais.</p>
+            </blockquote>
+            <Link to="/sobre" className="btn btn-navy mt-9">
+              Conheça a GB
+            </Link>
+          </motion.div>
+
+          <motion.div {...reveal} className="relative">
             <img
               src="/images/equipe.jpg"
               alt="Dois profissionais com capacete conversando em canteiro de obras"
-              className="relative h-[360px] w-full rounded-3xl object-cover lg:h-[480px]"
+              className="h-[380px] w-full rounded-2xl object-cover shadow-lg sm:h-[480px] lg:h-[560px]"
               loading="lazy"
               decoding="async"
             />
+            <div className="absolute inset-x-5 bottom-5 flex items-center gap-4 rounded-xl bg-brand-navy/95 p-5 text-white backdrop-blur sm:inset-x-auto sm:left-5 sm:max-w-sm">
+              <MapPin className="h-7 w-7 shrink-0 text-brand-green-bright" aria-hidden="true" />
+              <div>
+                <p className="font-semibold">Atendimento em {CITY}</p>
+                <p className="text-base text-white/75">e cidades da região</p>
+              </div>
+            </div>
           </motion.div>
-          <motion.div {...reveal} className="lg:col-span-6 lg:col-start-7">
-            <span className="label">Sobre a GB</span>
-            <h2 className="title-2 mt-3">
-              Desde 2022 ajudando empresas a cumprir as normas e proteger quem faz o trabalho acontecer.
-            </h2>
-            <p className="mt-6 text-brand-ink/80">
-              Consultoria especializada em saúde e segurança do trabalho, com atendimento direto e linguagem clara.
-            </p>
-            <Link to="/sobre" className="btn btn-navy mt-8">
-              Conheça a GB
-              <ArrowRight className="h-5 w-5" aria-hidden="true" />
-            </Link>
+        </div>
+
+        <div className="container mt-20 lg:mt-28">
+          <StatsStrip />
+        </div>
+      </section>
+
+      {/* Serviços */}
+      <section className="section bg-white">
+        <div className="container">
+          <motion.div {...reveal} className="mx-auto mb-16 max-w-3xl text-center lg:mb-24">
+            <span className="label justify-center">Nossos serviços</span>
+            <h2 className="title-2 mt-4">Segurança do trabalho, do documento ao treinamento</h2>
+            <p className="lead mt-5">Três frentes que mantêm sua empresa protegida e dentro da lei.</p>
           </motion.div>
+          <ServiceBlocks />
         </div>
       </section>
     </>

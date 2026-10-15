@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone, Mail, Instagram } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import WhatsAppIcon from './WhatsAppIcon';
-import { WHATSAPP_URL, PHONE_DISPLAY, WHATSAPP_NUMBER, EMAIL } from '@/lib/contact';
+import { WHATSAPP_URL, PHONE_DISPLAY, WHATSAPP_NUMBER, EMAIL, INSTAGRAM_URL } from '@/lib/contact';
 import { cn } from '@/lib/utils';
 
 const NAV_LINKS = [
   { name: 'Início', path: '/' },
-  { name: 'Sobre', path: '/sobre' },
+  { name: 'Quem somos', path: '/sobre' },
   { name: 'Serviços', path: '/servicos' },
   { name: 'Contato', path: '/contato' },
 ];
@@ -37,18 +37,44 @@ const Header = () => {
   }, [isMenuOpen]);
 
   return (
-    <header
-      className={cn(
-        'sticky top-0 z-50 border-b bg-white/95 backdrop-blur transition-colors',
-        scrolled ? 'border-brand-line' : 'border-transparent'
-      )}
-    >
-      {/* Faixa com as cores da marca */}
-      <div aria-hidden="true" className="flex h-1.5">
-        <span className="flex-[3] bg-brand-green" />
-        <span className="flex-[3] bg-brand-blue" />
+    <header className={cn('sticky top-0 z-50 bg-white transition-shadow', scrolled && 'shadow-[0_8px_24px_-16px_rgba(11,42,71,0.35)]')}>
+      {/* Barra de contato */}
+      <div className="bg-brand-navy-deep text-white">
+        <div className="container flex h-11 items-center justify-between gap-4 text-[15px]">
+          <div className="flex items-center gap-6">
+            <a href={`tel:+${WHATSAPP_NUMBER}`} className="inline-flex items-center gap-2 text-white/85 hover:text-white">
+              <Phone className="h-4 w-4 text-brand-green-bright" aria-hidden="true" />
+              {PHONE_DISPLAY}
+            </a>
+            <a href={`mailto:${EMAIL}`} className="hidden items-center gap-2 text-white/85 hover:text-white sm:inline-flex">
+              <Mail className="h-4 w-4 text-brand-green-bright" aria-hidden="true" />
+              {EMAIL}
+            </a>
+          </div>
+          <div className="flex items-center gap-2">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
       </div>
-      <nav className="container flex h-20 items-center justify-between gap-6 lg:h-24" aria-label="Principal">
+
+      <nav className="container flex h-20 items-center justify-between gap-6 border-b border-brand-line lg:h-[88px]" aria-label="Principal">
         <Link
           to="/"
           className="flex shrink-0 items-center gap-3"
@@ -61,7 +87,7 @@ const Header = () => {
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-9 lg:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.path}>
               <NavLink
@@ -69,37 +95,20 @@ const Header = () => {
                 end={link.path === '/'}
                 className={({ isActive }) =>
                   cn(
-                    'relative py-2 text-lg font-semibold transition-colors hover:text-brand-green',
-                    isActive ? 'text-brand-green' : 'text-brand-ink'
+                    'relative py-2 text-[17px] font-semibold transition-colors hover:text-brand-green',
+                    isActive ? 'text-brand-green' : 'text-brand-navy'
                   )
                 }
               >
-                {({ isActive }) => (
-                  <>
-                    {link.name}
-                    <span
-                      aria-hidden="true"
-                      className={cn(
-                        'absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-brand-green transition-opacity',
-                        isActive ? 'opacity-100' : 'opacity-0'
-                      )}
-                    />
-                  </>
-                )}
+                {link.name}
               </NavLink>
             </li>
           ))}
         </ul>
 
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-primary btn-sm hidden lg:inline-flex"
-        >
-          <WhatsAppIcon className="h-5 w-5" />
-          Falar no WhatsApp
-        </a>
+        <Link to="/contato" className="btn btn-navy btn-sm hidden lg:inline-flex">
+          Solicitar orçamento
+        </Link>
 
         <button
           type="button"
@@ -121,7 +130,7 @@ const Header = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 bottom-0 top-[86px] z-40 overflow-y-auto bg-white lg:hidden"
+            className="fixed inset-x-0 bottom-0 top-[124px] z-40 overflow-y-auto bg-white lg:hidden"
           >
             <div className="container flex min-h-full flex-col py-6">
               <ul>
@@ -132,7 +141,7 @@ const Header = () => {
                       end={link.path === '/'}
                       className={({ isActive }) =>
                         cn(
-                          'block border-b border-brand-line py-5 font-heading text-3xl font-extrabold tracking-tight',
+                          'block border-b border-brand-line py-5 font-heading text-2xl font-bold',
                           isActive ? 'text-brand-green' : 'text-brand-navy'
                         )
                       }
@@ -143,19 +152,14 @@ const Header = () => {
                 ))}
               </ul>
 
-              <div className="mt-auto space-y-5 pt-10">
+              <div className="mt-auto space-y-3 pt-10">
+                <Link to="/contato" className="btn btn-navy w-full">
+                  Solicitar orçamento
+                </Link>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary w-full">
                   <WhatsAppIcon className="h-5 w-5" />
                   Falar no WhatsApp
                 </a>
-                <div className="flex flex-col gap-2 text-lg">
-                  <a href={`tel:+${WHATSAPP_NUMBER}`} className="font-semibold text-brand-navy">
-                    {PHONE_DISPLAY}
-                  </a>
-                  <a href={`mailto:${EMAIL}`} className="break-all text-brand-muted">
-                    {EMAIL}
-                  </a>
-                </div>
               </div>
             </div>
           </motion.div>

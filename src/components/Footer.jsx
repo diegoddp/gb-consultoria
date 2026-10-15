@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowRight, Instagram } from 'lucide-react';
+import { Instagram, Phone, Mail, MapPin } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
+import { SERVICES } from '@/lib/services';
 import {
   COMPANY_NAME,
   WHATSAPP_URL,
@@ -14,7 +15,7 @@ import {
 
 const NAV_LINKS = [
   { name: 'Início', path: '/' },
-  { name: 'Sobre', path: '/sobre' },
+  { name: 'Quem somos', path: '/sobre' },
   { name: 'Serviços', path: '/servicos' },
   { name: 'Contato', path: '/contato' },
 ];
@@ -26,23 +27,21 @@ const Footer = () => {
   return (
     <footer className="mt-auto">
       {showCta && (
-        <section className="relative isolate overflow-hidden bg-brand-green text-white">
-          <div aria-hidden="true" className="absolute -left-20 -top-32 -z-10 h-80 w-80 rounded-full border-[40px] border-white/10" />
-          <div className="container flex flex-col gap-8 py-16 lg:flex-row lg:items-center lg:justify-between lg:py-24">
-            <div className="max-w-2xl">
-              <h2 className="title-2 text-white">Vamos colocar sua empresa em dia?</h2>
-              <p className="mt-4 text-xl text-white/90">
-                Conte o que você precisa. Respondemos pelo WhatsApp.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
+        <section className="bg-brand-navy-deep text-white">
+          <div className="container py-20 text-center lg:py-24">
+            <h2 className="title-2 mx-auto max-w-3xl text-white">
+              Conformidade legal com tranquilidade para a sua empresa
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-xl text-white/80">
+              Fale com a GB e receba uma proposta sob medida para documentos e treinamentos de SST.
+            </p>
+            <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
               <Link to="/contato" className="btn btn-light">
-                Solicitar orçamento
-                <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                Solicitar proposta
               </Link>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-outline-light">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 <WhatsAppIcon className="h-5 w-5" />
-                WhatsApp
+                Falar no WhatsApp
               </a>
             </div>
           </div>
@@ -50,8 +49,8 @@ const Footer = () => {
       )}
 
       <div className="bg-brand-navy text-white">
-        <div className="container grid gap-12 py-16 lg:grid-cols-12 lg:py-20">
-          <div className="lg:col-span-5">
+        <div className="container grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-12 lg:py-20">
+          <div className="lg:col-span-4">
             <Link to="/" className="inline-flex items-center gap-3" aria-label={`${COMPANY_NAME} - página inicial`}>
               <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white">
                 <img src="/logo.png" alt="" width="40" height="40" className="h-10 w-10 object-contain" />
@@ -62,15 +61,36 @@ const Footer = () => {
               </span>
             </Link>
             <p className="mt-6 max-w-sm text-white/75">
-              Documentos de segurança do trabalho e treinamentos NR para empresas de {CITY} e região.
+              Compromisso com a saúde, a segurança e a conformidade legal da sua empresa.
             </p>
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-whatsapp"
+              >
+                <WhatsAppIcon className="h-5 w-5" />
+              </a>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
-          <nav aria-label="Rodapé" className="lg:col-span-3">
-            <ul className="space-y-3 text-lg">
+          <nav aria-label="Institucional" className="lg:col-span-2">
+            <h3 className="text-lg font-bold text-white">Institucional</h3>
+            <ul className="mt-5 space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="font-semibold text-white/85 transition-colors hover:text-brand-green-bright">
+                  <Link to={link.path} className="text-white/75 transition-colors hover:text-white">
                     {link.name}
                   </Link>
                 </li>
@@ -78,46 +98,45 @@ const Footer = () => {
             </ul>
           </nav>
 
-          <div className="lg:col-span-4">
-            <a
-              href={`tel:+${WHATSAPP_NUMBER}`}
-              className="title-3 block text-white transition-colors hover:text-brand-green-bright"
-            >
-              {PHONE_DISPLAY}
-            </a>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="mt-2 block break-all text-lg text-white/75 transition-colors hover:text-white"
-            >
-              {EMAIL}
-            </a>
-            <div className="mt-6 flex items-center gap-3">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-whatsapp"
-              >
-                <WhatsAppIcon className="h-6 w-6" />
-              </a>
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-              >
-                <Instagram className="h-6 w-6" />
-              </a>
-            </div>
+          <nav aria-label="Serviços" className="lg:col-span-3">
+            <h3 className="text-lg font-bold text-white">Serviços</h3>
+            <ul className="mt-5 space-y-3">
+              {SERVICES.map((service) => (
+                <li key={service.id}>
+                  <Link to={`/servicos#${service.id}`} className="text-white/75 transition-colors hover:text-white">
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="lg:col-span-3">
+            <h3 className="text-lg font-bold text-white">Contato</h3>
+            <ul className="mt-5 space-y-4">
+              <li>
+                <a href={`tel:+${WHATSAPP_NUMBER}`} className="flex items-start gap-3 text-white/75 hover:text-white">
+                  <Phone className="mt-1 h-5 w-5 shrink-0 text-brand-green-bright" aria-hidden="true" />
+                  {PHONE_DISPLAY}
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${EMAIL}`} className="flex items-start gap-3 break-all text-white/75 hover:text-white">
+                  <Mail className="mt-1 h-5 w-5 shrink-0 text-brand-green-bright" aria-hidden="true" />
+                  {EMAIL}
+                </a>
+              </li>
+              <li className="flex items-start gap-3 text-white/75">
+                <MapPin className="mt-1 h-5 w-5 shrink-0 text-brand-green-bright" aria-hidden="true" />
+                {CITY} e região
+              </li>
+            </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10">
-          <div className="container flex flex-col gap-1 py-6 text-base text-white/60 sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} {COMPANY_NAME}</p>
-            <p>{CITY}</p>
+          <div className="container py-6 text-base text-white/60">
+            © {new Date().getFullYear()} {COMPANY_NAME}. Todos os direitos reservados.
           </div>
         </div>
       </div>

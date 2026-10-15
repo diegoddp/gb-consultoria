@@ -19,7 +19,7 @@ export const SERVICES = [
   {
     id: 'treinamentos-nr',
     icon: HardHat,
-    title: 'Treinamentos NR',
+    title: 'Treinamentos em SST',
     short: 'Treinamentos NR',
     description: 'Capacitação nas NR 05, 06, 11, 12, 23, 33 e 35, com certificação para sua equipe.',
   },
