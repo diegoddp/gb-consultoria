@@ -47,7 +47,6 @@ const Header = () => {
       <div aria-hidden="true" className="flex h-1.5">
         <span className="flex-[3] bg-brand-green" />
         <span className="flex-[3] bg-brand-blue" />
-        <span className="flex-1 bg-brand-amber" />
       </div>
       <nav className="container flex h-20 items-center justify-between gap-6 lg:h-24" aria-label="Principal">
         <Link

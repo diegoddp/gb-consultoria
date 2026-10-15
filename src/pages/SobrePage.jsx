@@ -9,10 +9,10 @@ import { fadeUp, reveal, revealGroup } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 
 const VALUES = [
-  { icon: Shield, title: 'Prevenção', text: 'Antecipar riscos e criar ambientes de trabalho mais seguros.', panel: 'bg-brand-green-soft', badge: 'bg-brand-green text-white' },
-  { icon: Award, title: 'Excelência', text: 'Qualidade e profissionalismo em cada serviço prestado.', panel: 'bg-brand-blue-soft', badge: 'bg-brand-blue text-white' },
-  { icon: Handshake, title: 'Confiança', text: 'Relações construídas com transparência e resultados.', panel: 'bg-brand-amber-soft', badge: 'bg-brand-amber text-brand-navy' },
-  { icon: ClipboardCheck, title: 'Conformidade', text: 'Sua empresa sempre em dia com as normas regulamentadoras.', panel: 'bg-brand-blue-soft', badge: 'bg-brand-navy text-white' },
+  { icon: Shield, title: 'Prevenção', text: 'Antecipar riscos e criar ambientes de trabalho mais seguros.', panel: 'bg-brand-paper', badge: 'bg-brand-green text-white' },
+  { icon: Award, title: 'Excelência', text: 'Qualidade e profissionalismo em cada serviço prestado.', panel: 'bg-brand-paper', badge: 'bg-brand-green text-white' },
+  { icon: Handshake, title: 'Confiança', text: 'Relações construídas com transparência e resultados.', panel: 'bg-brand-paper', badge: 'bg-brand-green text-white' },
+  { icon: ClipboardCheck, title: 'Conformidade', text: 'Sua empresa sempre em dia com as normas regulamentadoras.', panel: 'bg-brand-paper', badge: 'bg-brand-green text-white' },
 ];
 
 const SobrePage = () => {
@@ -48,7 +48,7 @@ const SobrePage = () => {
             </Link>
           </motion.div>
           <motion.div {...reveal} className="relative lg:col-span-5 lg:col-start-8">
-            <div aria-hidden="true" className="absolute -bottom-4 -left-4 h-full w-full rounded-3xl bg-brand-amber" />
+            <div aria-hidden="true" className="absolute -bottom-4 -left-4 h-full w-full rounded-3xl bg-brand-green-soft" />
             <img
               src="/images/equipe.jpg"
               alt="Dois profissionais com capacete conversando em canteiro de obras"
@@ -61,15 +61,15 @@ const SobrePage = () => {
       </section>
 
       {/* Missão */}
-      <section className="relative isolate overflow-hidden bg-brand-green text-white">
-        <div aria-hidden="true" className="absolute -right-32 -top-32 -z-10 h-[30rem] w-[30rem] rounded-full border-[56px] border-white/10" />
+      <section className="relative isolate overflow-hidden bg-brand-blue-soft">
+        <div aria-hidden="true" className="absolute -right-32 -top-32 -z-10 h-[30rem] w-[30rem] rounded-full border-[56px] border-brand-blue/5" />
         <div className="container section">
           <motion.div {...reveal} className="max-w-4xl">
-            <span className="label text-brand-amber">Nossa missão</span>
-            <p className="title-2 mt-4 text-white">
+            <span className="label">Nossa missão</span>
+            <p className="title-2 mt-4">
               Promover a segurança e a saúde no ambiente de trabalho, garantindo que empresas estejam em conformidade e, principalmente, protegendo a vida e o bem-estar de seus colaboradores.
             </p>
-            <p className="mt-8 text-xl font-semibold text-brand-amber sm:text-2xl">
+            <p className="mt-8 text-xl font-semibold text-brand-green sm:text-2xl">
               Prevenção que salva, excelência que transforma.
             </p>
           </motion.div>

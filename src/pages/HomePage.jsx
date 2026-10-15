@@ -8,43 +8,43 @@ import { WHATSAPP_URL, CITY } from '@/lib/contact';
 import { fadeUp, reveal } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 
-// Cada serviço ganha uma cor da marca para o leitor diferenciar à primeira vista
+// Tons suaves por serviço: diferenciam sem pesar
 const SERVICE_PANELS = [
   {
     id: 'gestao-documentos',
     title: 'Gestão de Documentos de SST',
     text: 'Organizamos e mantemos atualizada toda a documentação obrigatória da sua empresa, pronta para auditorias e fiscalizações.',
     items: ['Controle de prazos e validades', 'Organização centralizada', 'Atualização conforme a legislação'],
-    panel: 'bg-brand-green text-white',
-    title_: 'text-white',
-    body: 'text-white/85',
-    chip: 'bg-white/15 text-white',
-    check: 'text-brand-amber',
-    link: 'text-white',
+    panel: 'bg-brand-green-soft',
+    title_: 'text-brand-navy',
+    body: 'text-brand-muted',
+    chip: 'bg-white text-brand-navy',
+    check: 'text-brand-green',
+    link: 'text-brand-green',
   },
   {
     id: 'emissao-documentos',
     title: 'Emissão de Documentos',
     text: 'Elaboramos e emitimos os documentos que a lei exige para sua empresa funcionar com segurança.',
     items: ['AVCB', 'CLCB', 'PGR', 'PCMSO'],
-    panel: 'bg-brand-blue text-white',
-    title_: 'text-white',
-    body: 'text-white/85',
-    chip: 'bg-white/15 text-white',
-    check: 'text-brand-green-bright',
-    link: 'text-white',
+    panel: 'bg-brand-blue-soft',
+    title_: 'text-brand-navy',
+    body: 'text-brand-muted',
+    chip: 'bg-white text-brand-navy',
+    check: 'text-brand-blue',
+    link: 'text-brand-blue',
   },
   {
     id: 'treinamentos-nr',
     title: 'Treinamentos NR',
     text: 'Capacitamos sua equipe nas normas regulamentadoras, com certificado ao final.',
     items: ['NR 05', 'NR 06', 'NR 11', 'NR 12', 'NR 23', 'NR 33', 'NR 35'],
-    panel: 'bg-brand-amber text-brand-navy',
+    panel: 'bg-brand-paper',
     title_: 'text-brand-navy',
-    body: 'text-brand-navy/80',
-    chip: 'bg-white/70 text-brand-navy',
+    body: 'text-brand-muted',
+    chip: 'bg-white text-brand-navy',
     check: 'text-brand-green',
-    link: 'text-brand-navy',
+    link: 'text-brand-green',
   },
 ];
 
@@ -62,11 +62,10 @@ const HomePage = () => {
       {/* Hero em azul da marca */}
       <section className="relative isolate overflow-hidden bg-brand-blue text-white">
         <div aria-hidden="true" className="absolute -left-32 -top-40 -z-10 h-[34rem] w-[34rem] rounded-full border-[60px] border-white/[0.07]" />
-        <div aria-hidden="true" className="absolute -bottom-28 -right-24 -z-10 hidden h-80 w-80 rounded-full bg-brand-green/70 lg:block" />
 
         <div className="container grid items-center gap-12 py-16 lg:grid-cols-12 lg:gap-10 lg:py-24">
           <motion.div variants={fadeUp} initial="hidden" animate="show" className="lg:col-span-7">
-            <span className="inline-flex items-center gap-2 rounded-full bg-brand-amber px-4 py-2 text-base font-semibold text-brand-navy">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-base font-semibold text-white">
               {CITY} e região
             </span>
             <h1 className="title-hero mt-6 text-white">
@@ -96,7 +95,7 @@ const HomePage = () => {
             <img
               src="/images/hero-equipe.jpg"
               alt="Equipe de trabalhadores com capacetes e coletes refletivos em canteiro de obras, vistos de cima"
-              className="h-[320px] w-full rounded-3xl object-cover ring-8 ring-white/10 sm:h-[420px] lg:h-[540px]"
+              className="h-[320px] w-full rounded-3xl object-cover sm:h-[420px] lg:h-[540px]"
               width="1600"
               height="1067"
               fetchPriority="high"
@@ -150,7 +149,7 @@ const HomePage = () => {
       </section>
 
       {/* Sobre */}
-      <section className="section bg-brand-green-soft">
+      <section className="section bg-brand-paper">
         <div className="container grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
           <motion.div {...reveal} className="relative lg:col-span-5">
             <div aria-hidden="true" className="absolute -right-4 -top-4 h-full w-full rounded-3xl bg-brand-blue" />

@@ -33,12 +33,12 @@ const TREINAMENTOS_NR = [
 ];
 
 // Cor de cada serviço, igual aos painéis da Home
-const ACCENTS = ['bg-brand-green', 'bg-brand-blue', 'bg-brand-amber'];
+const ACCENTS = ['bg-brand-green', 'bg-brand-blue', 'bg-brand-navy'];
 const DOC_ACCENTS = [
   { bar: 'border-t-brand-green', text: 'text-brand-green' },
   { bar: 'border-t-brand-blue', text: 'text-brand-blue' },
-  { bar: 'border-t-brand-amber', text: 'text-brand-navy' },
-  { bar: 'border-t-brand-navy', text: 'text-brand-navy' },
+  { bar: 'border-t-brand-green', text: 'text-brand-green' },
+  { bar: 'border-t-brand-blue', text: 'text-brand-blue' },
 ];
 
 const ServicosPage = () => {
@@ -53,7 +53,7 @@ const ServicosPage = () => {
       </Helmet>
 
       <PageHero
-        tone="green"
+        tone="blue"
         crumb="Serviços"
         title="Documentos em ordem, equipe treinada."
         subtitle="Três serviços que cobrem o que sua empresa precisa para operar com segurança."
@@ -86,13 +86,13 @@ const ServicosPage = () => {
               Toda a documentação obrigatória de SST organizada e atualizada, pronta para auditorias e fiscalizações.
             </p>
           </motion.div>
-          <motion.ul {...revealGroup} className="panel space-y-5 bg-brand-green lg:col-span-7">
+          <motion.ul {...revealGroup} className="panel space-y-5 bg-brand-green-soft lg:col-span-7">
             {BENEFICIOS_GESTAO.map((item) => (
               <motion.li key={item} variants={fadeUp} className="flex items-start gap-4">
-                <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-amber text-brand-navy">
+                <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-green text-white">
                   <Check className="h-4 w-4" strokeWidth={3} aria-hidden="true" />
                 </span>
-                <span className="text-lg font-medium text-white sm:text-xl">{item}</span>
+                <span className="text-lg font-medium text-brand-navy sm:text-xl">{item}</span>
               </motion.li>
             ))}
           </motion.ul>
@@ -137,7 +137,7 @@ const ServicosPage = () => {
             {TREINAMENTOS_NR.map((t) => (
               <motion.li key={t.nr} variants={fadeUp} className="grid gap-3 py-7 sm:grid-cols-12 sm:items-baseline sm:gap-8">
                 <span className="sm:col-span-2">
-                  <span className="inline-flex rounded-full bg-brand-amber px-4 py-1.5 font-heading text-lg font-extrabold text-brand-navy">
+                  <span className="inline-flex rounded-full bg-brand-blue-soft px-4 py-1.5 font-heading text-lg font-extrabold text-brand-blue">
                     {t.nr}
                   </span>
                 </span>

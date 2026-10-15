@@ -28,7 +28,6 @@ const Footer = () => {
       {showCta && (
         <section className="relative isolate overflow-hidden bg-brand-green text-white">
           <div aria-hidden="true" className="absolute -left-20 -top-32 -z-10 h-80 w-80 rounded-full border-[40px] border-white/10" />
-          <div aria-hidden="true" className="absolute -bottom-16 right-10 -z-10 hidden h-40 w-40 rounded-full bg-brand-amber lg:block" />
           <div className="container flex flex-col gap-8 py-16 lg:flex-row lg:items-center lg:justify-between lg:py-24">
             <div className="max-w-2xl">
               <h2 className="title-2 text-white">Vamos colocar sua empresa em dia?</h2>
@@ -71,7 +70,7 @@ const Footer = () => {
             <ul className="space-y-3 text-lg">
               {NAV_LINKS.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="font-semibold text-white/85 transition-colors hover:text-brand-amber">
+                  <Link to={link.path} className="font-semibold text-white/85 transition-colors hover:text-brand-green-bright">
                     {link.name}
                   </Link>
                 </li>
@@ -82,7 +81,7 @@ const Footer = () => {
           <div className="lg:col-span-4">
             <a
               href={`tel:+${WHATSAPP_NUMBER}`}
-              className="title-3 block text-white transition-colors hover:text-brand-amber"
+              className="title-3 block text-white transition-colors hover:text-brand-green-bright"
             >
               {PHONE_DISPLAY}
             </a>
@@ -107,7 +106,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-brand-amber hover:text-brand-navy"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
               >
                 <Instagram className="h-6 w-6" />
               </a>

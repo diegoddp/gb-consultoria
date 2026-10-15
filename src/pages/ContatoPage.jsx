@@ -85,7 +85,7 @@ const ContatoPage = () => {
         />
       </Helmet>
 
-      <PageHero tone="navy" crumb="Contato" title="Vamos conversar?" subtitle="Respondemos pelo WhatsApp em horário comercial." />
+      <PageHero tone="blue" crumb="Contato" title="Vamos conversar?" subtitle="Respondemos pelo WhatsApp em horário comercial." />
 
       <section className="section bg-white">
         <div className="container grid gap-14 lg:grid-cols-12 lg:gap-10">
@@ -119,7 +119,7 @@ const ContatoPage = () => {
           </motion.aside>
 
           {/* Formulário */}
-          <motion.div {...reveal} className="panel border-t-8 border-t-brand-amber bg-brand-blue-soft lg:col-span-7">
+          <motion.div {...reveal} className="panel bg-brand-paper lg:col-span-7">
             <span className="label">Solicite um orçamento</span>
             <p className="mt-3 text-brand-muted">
               Ao enviar, abrimos o WhatsApp com a mensagem pronta para você confirmar.
