@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { ArrowUpRight, Instagram } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 import BrandArcs from './BrandArcs';
-import { SERVICES } from '@/lib/services';
 import {
   COMPANY_NAME,
   WHATSAPP_URL,
@@ -34,55 +33,48 @@ const Footer = () => {
 
       {showCta && (
         <section className="border-b border-white/10">
-          <div className="container grid gap-10 py-16 lg:grid-cols-12 lg:items-end lg:py-24">
-            <div className="lg:col-span-8">
-              <span className="label label-light mb-5">Vamos conversar</span>
-              <h2 className="display text-4xl sm:text-5xl lg:text-6xl">
-                Prevenção que salva,
-                <br />
-                <span className="text-brand-green">excelência que transforma.</span>
-              </h2>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row lg:col-span-4 lg:flex-col lg:items-end">
+          <div className="container flex flex-col gap-8 py-16 lg:flex-row lg:items-end lg:justify-between lg:py-24">
+            <h2 className="display max-w-2xl text-4xl sm:text-5xl">
+              Prevenção que salva,
+              <br />
+              <span className="text-brand-green">excelência que transforma.</span>
+            </h2>
+            <div className="flex flex-col gap-3 sm:flex-row">
               <Link to="/contato" className="btn btn-light btn-lg">
                 Solicitar orçamento
                 <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
               </Link>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-outline-light btn-lg">
                 <WhatsAppIcon className="h-5 w-5" />
-                Falar no WhatsApp
+                WhatsApp
               </a>
             </div>
           </div>
         </section>
       )}
 
-      <div className="container grid gap-12 py-14 lg:grid-cols-12 lg:py-20">
-        {/* Marca */}
-        <div className="lg:col-span-5">
-          <Link to="/" className="inline-flex items-center gap-4" aria-label={`${COMPANY_NAME} - página inicial`}>
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white">
-              <img src="/logo.png" alt="" width="40" height="40" className="h-10 w-10 object-contain" />
+      <div className="container grid gap-10 py-12 lg:grid-cols-12 lg:items-start lg:py-16">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-4 lg:col-span-4"
+          aria-label={`${COMPANY_NAME} - página inicial`}
+        >
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white">
+            <img src="/logo.png" alt="" width="36" height="36" className="h-9 w-9 object-contain" />
+          </span>
+          <span className="flex flex-col font-heading leading-none">
+            <span className="text-sm font-extrabold uppercase tracking-tight">Consultoria de</span>
+            <span className="mt-0.5 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-green">
+              Segurança do Trabalho
             </span>
-            <span className="flex flex-col font-heading leading-none">
-              <span className="text-base font-extrabold uppercase tracking-tight">Consultoria de</span>
-              <span className="mt-0.5 text-[11px] font-bold uppercase tracking-[0.16em] text-brand-green">
-                Segurança do Trabalho
-              </span>
-            </span>
-          </Link>
-          <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-white/60">
-            Gestão e emissão de documentos de SST e treinamentos em normas regulamentadoras para empresas de {CITY} e região.
-          </p>
-        </div>
+          </span>
+        </Link>
 
-        {/* Links */}
-        <nav aria-label="Rodapé" className="lg:col-span-2">
-          <h3 className="label label-light">Páginas</h3>
-          <ul className="mt-5 space-y-3">
+        <nav aria-label="Rodapé" className="lg:col-span-4">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
             {NAV_LINKS.map((link) => (
               <li key={link.path}>
-                <Link to={link.path} className="text-[15px] text-white/80 transition-colors hover:text-white">
+                <Link to={link.path} className="text-white/70 transition-colors hover:text-white">
                   {link.name}
                 </Link>
               </li>
@@ -90,67 +82,43 @@ const Footer = () => {
           </ul>
         </nav>
 
-        <div className="lg:col-span-2">
-          <h3 className="label label-light">Serviços</h3>
-          <ul className="mt-5 space-y-3">
-            {SERVICES.map((service) => (
-              <li key={service.id}>
-                <Link
-                  to={`/servicos#${service.id}`}
-                  className="text-[15px] text-white/80 transition-colors hover:text-white"
-                >
-                  {service.short}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="lg:col-span-3">
-          <h3 className="label label-light">Contato</h3>
-          <ul className="mt-5 space-y-3 text-[15px]">
-            <li>
-              <a
-                href={`tel:+${WHATSAPP_NUMBER}`}
-                className="font-heading text-xl font-extrabold tracking-tight text-white transition-colors hover:text-brand-green"
-              >
-                {PHONE_DISPLAY}
-              </a>
-            </li>
-            <li>
-              <a href={`mailto:${EMAIL}`} className="break-all text-white/80 transition-colors hover:text-white">
-                {EMAIL}
-              </a>
-            </li>
-            <li className="text-white/60">{CITY}</li>
-          </ul>
-          <div className="mt-6 flex items-center gap-3">
+        <div className="flex flex-col gap-2 text-[15px] lg:col-span-4 lg:items-end">
+          <a
+            href={`tel:+${WHATSAPP_NUMBER}`}
+            className="font-heading text-lg font-extrabold tracking-tight transition-colors hover:text-brand-green"
+          >
+            {PHONE_DISPLAY}
+          </a>
+          <a href={`mailto:${EMAIL}`} className="break-all text-white/70 transition-colors hover:text-white">
+            {EMAIL}
+          </a>
+          <div className="mt-2 flex items-center gap-3">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 transition-colors hover:border-whatsapp hover:text-whatsapp"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-whatsapp hover:text-whatsapp"
             >
-              <WhatsAppIcon className="h-5 w-5" />
+              <WhatsAppIcon className="h-4 w-4" />
             </a>
             <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 transition-colors hover:border-white hover:text-white"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-white hover:text-white"
             >
-              <Instagram className="h-5 w-5" />
+              <Instagram className="h-4 w-4" />
             </a>
           </div>
         </div>
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container flex flex-col gap-2 py-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {COMPANY_NAME}. Todos os direitos reservados.</p>
-          <p className="font-heading font-bold uppercase tracking-[0.18em]">{CITY}</p>
+        <div className="container flex flex-col gap-2 py-5 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} {COMPANY_NAME}</p>
+          <p>{CITY}</p>
         </div>
       </div>
     </footer>

@@ -89,7 +89,6 @@ const ContatoPage = () => {
         crumb="Contato"
         label="Fale com a GB"
         title="Vamos colocar sua empresa em dia?"
-        subtitle="Conte o que você precisa. Respondemos pelo WhatsApp e montamos uma proposta sob medida."
         image="/images/contato-hero.jpg"
         imageAlt="Técnico de segurança com capacete e colete analisando documento em área industrial"
       />
@@ -152,7 +151,7 @@ const ContatoPage = () => {
               Solicite um orçamento
             </span>
             <p className="mt-4 max-w-lg text-brand-muted">
-              Preencha os dados e, ao enviar, abriremos o WhatsApp com a mensagem pronta para você confirmar.
+              Ao enviar, abrimos o WhatsApp com a mensagem pronta para você confirmar.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-10 space-y-8" noValidate>

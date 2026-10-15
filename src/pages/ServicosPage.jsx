@@ -1,12 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight, Check } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import PageHero from '@/components/PageHero';
-import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { SERVICES } from '@/lib/services';
-import { WHATSAPP_URL } from '@/lib/contact';
 import { fadeUp, reveal, revealGroup } from '@/lib/motion';
 
 const [GESTAO, EMISSAO, TREINAMENTOS] = SERVICES;
@@ -79,7 +76,6 @@ const ServicosPage = () => {
         crumb="Serviços"
         label="O que fazemos"
         title="Documentos em ordem, equipe treinada."
-        subtitle="Três frentes que cobrem o que sua empresa precisa para operar com segurança e dentro da lei."
         image="/images/servicos-hero.jpg"
         imageAlt="Trabalhadores com cinto de segurança em estrutura de obra"
       />
@@ -110,7 +106,7 @@ const ServicosPage = () => {
           <BlockHeader
             index={1}
             service={GESTAO}
-            intro="Organização, controle e atualização de toda a documentação obrigatória em Saúde e Segurança do Trabalho. Sua empresa sempre preparada para auditorias e fiscalizações."
+            intro="Toda a documentação obrigatória de SST organizada e atualizada, pronta para auditorias e fiscalizações."
           />
           <motion.ul {...revealGroup} className="mt-12 grid gap-x-12 lg:ml-[25%] lg:grid-cols-2">
             {BENEFICIOS_GESTAO.map((item) => (
@@ -135,7 +131,7 @@ const ServicosPage = () => {
           <BlockHeader
             index={2}
             service={EMISSAO}
-            intro="Elaboração e emissão dos documentos essenciais para a segurança e a conformidade legal da sua empresa."
+            intro="Os documentos que a lei exige, elaborados e emitidos pela GB."
           />
           <motion.ol {...revealGroup} className="mt-12 border-t border-brand-line lg:ml-[25%]">
             {DOCUMENTOS.map((doc) => (
@@ -161,7 +157,7 @@ const ServicosPage = () => {
           <BlockHeader
             index={3}
             service={TREINAMENTOS}
-            intro="Treinamentos especializados e obrigatórios para capacitação de colaboradores conforme as Normas Regulamentadoras do Ministério do Trabalho."
+            intro="Capacitação obrigatória conforme as Normas Regulamentadoras, com certificação."
           />
           <motion.ol {...revealGroup} className="mt-12 grid gap-x-10 border-t border-brand-line lg:ml-[25%] lg:grid-cols-2">
             {TREINAMENTOS_NR.map((t) => (
@@ -183,27 +179,6 @@ const ServicosPage = () => {
               </motion.li>
             ))}
           </motion.ol>
-        </div>
-      </section>
-
-      {/* Chamada curta */}
-      <section className="section-tight border-t border-brand-line bg-white">
-        <div className="container grid gap-8 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-8">
-            <h2 className="display-md text-2xl text-brand-navy sm:text-3xl">
-              Precisa de algo que não está aqui? Conte o que sua empresa faz e montamos uma proposta sob medida.
-            </h2>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row lg:col-span-4 lg:justify-end">
-            <Link to="/contato" className="btn btn-primary">
-              Solicitar orçamento
-              <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
-            </Link>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
-              <WhatsAppIcon className="h-5 w-5" />
-              WhatsApp
-            </a>
-          </div>
         </div>
       </section>
     </>

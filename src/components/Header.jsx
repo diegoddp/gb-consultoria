@@ -94,12 +94,6 @@ const Header = () => {
 
         {/* Ações desktop */}
         <div className="hidden items-center gap-5 lg:flex">
-          <a
-            href={`tel:+${WHATSAPP_NUMBER}`}
-            className="hidden font-heading text-sm font-bold tracking-tight text-brand-navy transition-colors hover:text-brand-green xl:block"
-          >
-            {PHONE_DISPLAY}
-          </a>
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">
             <WhatsAppIcon className="h-4 w-4" />
             WhatsApp
