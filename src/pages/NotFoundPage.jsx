@@ -14,27 +14,21 @@ const NotFoundPage = () => {
       </Helmet>
 
       <section className="section bg-white">
-        <div className="container grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-3">
-            <span className="label">Erro 404</span>
-          </div>
-          <div className="lg:col-span-9">
-            <h1 className="display text-4xl text-brand-navy sm:text-5xl lg:text-6xl">
-              Essa página não existe.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-brand-muted">
-              O endereço que você acessou foi movido ou nunca existiu. Volte para o início ou fale com a gente.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to="/" className="btn btn-primary">
-                Ir para o início
-                <ArrowRight className="h-5 w-5" aria-hidden="true" />
-              </Link>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
-                <WhatsAppIcon className="h-5 w-5" />
-                Falar no WhatsApp
-              </a>
-            </div>
+        <div className="container max-w-3xl">
+          <span className="label">Erro 404</span>
+          <h1 className="title-1 mt-3">Essa página não existe.</h1>
+          <p className="lead mt-6">
+            O endereço foi movido ou nunca existiu. Volte para o início ou fale com a gente.
+          </p>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Link to="/" className="btn btn-primary">
+              Ir para o início
+              <ArrowRight className="h-5 w-5" aria-hidden="true" />
+            </Link>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+              <WhatsAppIcon className="h-5 w-5" />
+              Falar no WhatsApp
+            </a>
           </div>
         </div>
       </section>

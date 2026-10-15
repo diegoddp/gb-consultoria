@@ -8,11 +8,11 @@ module.exports = {
 			center: true,
 			padding: {
 				DEFAULT: '1.25rem',
-				sm: '1.5rem',
-				lg: '2.5rem',
+				sm: '2rem',
+				lg: '3rem',
 			},
 			screens: {
-				'2xl': '1280px',
+				'2xl': '1240px',
 			},
 		},
 		extend: {
@@ -27,12 +27,13 @@ module.exports = {
 					'green-dark': '#155C33',
 					'green-soft': '#E4F1E9',
 					blue: '#0F4C81',
+					'blue-soft': '#E6EEF6',
 					navy: '#0B2A47',
 					'navy-deep': '#071E35',
-					ink: '#13202E',
-					muted: '#5D6B78',
+					ink: '#1B2733',
+					muted: '#4B5A68',
 					paper: '#F5F7F6',
-					line: '#DCE2E7',
+					line: '#D9E0E6',
 				},
 				whatsapp: {
 					DEFAULT: '#25D366',
@@ -77,14 +78,7 @@ module.exports = {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)',
 			},
-			letterSpacing: {
-				tightest: '-0.03em',
-			},
 			keyframes: {
-				marquee: {
-					from: { transform: 'translateX(0)' },
-					to: { transform: 'translateX(-50%)' },
-				},
 				'accordion-down': {
 					from: { height: 0 },
 					to: { height: 'var(--radix-accordion-content-height)' },
@@ -95,7 +89,6 @@ module.exports = {
 				},
 			},
 			animation: {
-				marquee: 'marquee 40s linear infinite',
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 			},
