@@ -13,7 +13,7 @@ const NotFoundPage = () => {
         <meta name="robots" content="noindex" />
       </Helmet>
 
-      <section className="section bg-white">
+      <section className="section bg-brand-blue-soft">
         <div className="container max-w-3xl">
           <span className="label">Erro 404</span>
           <h1 className="title-1 mt-3">Essa página não existe.</h1>

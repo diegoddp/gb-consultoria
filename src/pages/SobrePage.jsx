@@ -6,12 +6,13 @@ import { ArrowRight, Shield, Award, Handshake, ClipboardCheck } from 'lucide-rea
 import PageHero from '@/components/PageHero';
 import { CITY } from '@/lib/contact';
 import { fadeUp, reveal, revealGroup } from '@/lib/motion';
+import { cn } from '@/lib/utils';
 
 const VALUES = [
-  { icon: Shield, title: 'Prevenção', text: 'Antecipar riscos e criar ambientes de trabalho mais seguros.' },
-  { icon: Award, title: 'Excelência', text: 'Qualidade e profissionalismo em cada serviço prestado.' },
-  { icon: Handshake, title: 'Confiança', text: 'Relações construídas com transparência e resultados.' },
-  { icon: ClipboardCheck, title: 'Conformidade', text: 'Sua empresa sempre em dia com as normas regulamentadoras.' },
+  { icon: Shield, title: 'Prevenção', text: 'Antecipar riscos e criar ambientes de trabalho mais seguros.', panel: 'bg-brand-green-soft', badge: 'bg-brand-green text-white' },
+  { icon: Award, title: 'Excelência', text: 'Qualidade e profissionalismo em cada serviço prestado.', panel: 'bg-brand-blue-soft', badge: 'bg-brand-blue text-white' },
+  { icon: Handshake, title: 'Confiança', text: 'Relações construídas com transparência e resultados.', panel: 'bg-brand-amber-soft', badge: 'bg-brand-amber text-brand-navy' },
+  { icon: ClipboardCheck, title: 'Conformidade', text: 'Sua empresa sempre em dia com as normas regulamentadoras.', panel: 'bg-brand-blue-soft', badge: 'bg-brand-navy text-white' },
 ];
 
 const SobrePage = () => {
@@ -26,6 +27,7 @@ const SobrePage = () => {
       </Helmet>
 
       <PageHero
+        tone="blue"
         crumb="Sobre"
         title="Gente que entende de norma e de gente."
         subtitle={`Consultoria de segurança do trabalho em ${CITY} e região desde 2022.`}
@@ -45,11 +47,12 @@ const SobrePage = () => {
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
             </Link>
           </motion.div>
-          <motion.div {...reveal} className="lg:col-span-5 lg:col-start-8">
+          <motion.div {...reveal} className="relative lg:col-span-5 lg:col-start-8">
+            <div aria-hidden="true" className="absolute -bottom-4 -left-4 h-full w-full rounded-3xl bg-brand-amber" />
             <img
               src="/images/equipe.jpg"
               alt="Dois profissionais com capacete conversando em canteiro de obras"
-              className="h-[360px] w-full rounded-3xl object-cover lg:h-[480px]"
+              className="relative h-[360px] w-full rounded-3xl object-cover lg:h-[480px]"
               loading="lazy"
               decoding="async"
             />
@@ -58,14 +61,15 @@ const SobrePage = () => {
       </section>
 
       {/* Missão */}
-      <section className="bg-brand-navy text-white">
+      <section className="relative isolate overflow-hidden bg-brand-green text-white">
+        <div aria-hidden="true" className="absolute -right-32 -top-32 -z-10 h-[30rem] w-[30rem] rounded-full border-[56px] border-white/10" />
         <div className="container section">
           <motion.div {...reveal} className="max-w-4xl">
-            <span className="label text-white/80">Nossa missão</span>
+            <span className="label text-brand-amber">Nossa missão</span>
             <p className="title-2 mt-4 text-white">
               Promover a segurança e a saúde no ambiente de trabalho, garantindo que empresas estejam em conformidade e, principalmente, protegendo a vida e o bem-estar de seus colaboradores.
             </p>
-            <p className="mt-8 text-xl font-semibold text-brand-green sm:text-2xl">
+            <p className="mt-8 text-xl font-semibold text-brand-amber sm:text-2xl">
               Prevenção que salva, excelência que transforma.
             </p>
           </motion.div>
@@ -81,10 +85,12 @@ const SobrePage = () => {
           </motion.div>
           <motion.ul {...revealGroup} className="grid gap-6 sm:grid-cols-2">
             {VALUES.map((value) => (
-              <motion.li key={value.title} variants={fadeUp} className="panel bg-brand-paper">
-                <value.icon className="h-10 w-10 text-brand-green" strokeWidth={1.75} aria-hidden="true" />
+              <motion.li key={value.title} variants={fadeUp} className={cn('panel', value.panel)}>
+                <span className={cn('inline-flex h-16 w-16 items-center justify-center rounded-2xl', value.badge)}>
+                  <value.icon className="h-8 w-8" strokeWidth={1.75} aria-hidden="true" />
+                </span>
                 <h3 className="title-4 mt-6">{value.title}</h3>
-                <p className="mt-3 text-brand-muted">{value.text}</p>
+                <p className="mt-3 text-brand-ink/80">{value.text}</p>
               </motion.li>
             ))}
           </motion.ul>

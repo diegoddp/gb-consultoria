@@ -26,8 +26,14 @@ module.exports = {
 					green: '#1E7A45',
 					'green-dark': '#155C33',
 					'green-soft': '#E4F1E9',
+					// Verde mais claro para texto sobre fundos azuis
+					'green-bright': '#4CC97E',
 					blue: '#0F4C81',
+					'blue-dark': '#0C3D68',
 					'blue-soft': '#E6EEF6',
+					// Amarelo de sinalização de segurança, usado como destaque
+					amber: '#F5B700',
+					'amber-soft': '#FFF3C4',
 					navy: '#0B2A47',
 					'navy-deep': '#071E35',
 					ink: '#1B2733',

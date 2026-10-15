@@ -43,6 +43,12 @@ const Header = () => {
         scrolled ? 'border-brand-line' : 'border-transparent'
       )}
     >
+      {/* Faixa com as cores da marca */}
+      <div aria-hidden="true" className="flex h-1.5">
+        <span className="flex-[3] bg-brand-green" />
+        <span className="flex-[3] bg-brand-blue" />
+        <span className="flex-1 bg-brand-amber" />
+      </div>
       <nav className="container flex h-20 items-center justify-between gap-6 lg:h-24" aria-label="Principal">
         <Link
           to="/"
@@ -116,7 +122,7 @@ const Header = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 bottom-0 top-20 z-40 overflow-y-auto bg-white lg:hidden"
+            className="fixed inset-x-0 bottom-0 top-[86px] z-40 overflow-y-auto bg-white lg:hidden"
           >
             <div className="container flex min-h-full flex-col py-6">
               <ul>
