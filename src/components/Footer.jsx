@@ -50,7 +50,7 @@ const Footer = () => {
 
       <div className="bg-brand-navy text-white">
         <div className="container grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-12 lg:py-20">
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-3">
             <Link to="/" className="inline-flex items-center gap-3" aria-label={`${COMPANY_NAME} - página inicial`}>
               <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white">
                 <img src="/logo.png" alt="" width="40" height="40" className="h-10 w-10 object-contain" />
@@ -111,7 +111,7 @@ const Footer = () => {
             </ul>
           </nav>
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-4">
             <h3 className="text-lg font-bold text-white">Contato</h3>
             <ul className="mt-5 space-y-4">
               <li>
@@ -121,7 +121,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href={`mailto:${EMAIL}`} className="flex items-start gap-3 break-all text-white/75 hover:text-white">
+                <a href={`mailto:${EMAIL}`} className="flex items-start gap-3 text-white/75 [overflow-wrap:anywhere] hover:text-white sm:[overflow-wrap:normal] lg:whitespace-nowrap">
                   <Mail className="mt-1 h-5 w-5 shrink-0 text-brand-green-bright" aria-hidden="true" />
                   {EMAIL}
                 </a>
