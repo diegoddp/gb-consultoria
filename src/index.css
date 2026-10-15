@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 213 41% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 213 41% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 41% 13%;
+    --primary: 145 61% 30%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 208 79% 28%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 150 8% 96%;
+    --muted-foreground: 210 13% 42%;
+    --accent: 150 8% 96%;
+    --accent-foreground: 213 41% 13%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 208 18% 88%;
+    --input: 208 18% 88%;
+    --ring: 145 61% 30%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-brand-ink antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-green ring-offset-2 ring-offset-white;
+  }
+
+  ::selection {
+    @apply bg-brand-green text-white;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* Tipografia de destaque: pesada, apertada, editorial */
+  .display {
+    @apply font-heading font-extrabold leading-[1.02] tracking-tightest;
+    text-wrap: balance;
+  }
+  .display-md {
+    @apply font-heading font-extrabold leading-[1.08] tracking-tight;
+    text-wrap: balance;
+  }
+
+  /* Rótulo pequeno em caixa alta, com número de seção */
+  .label {
+    @apply inline-flex items-center gap-3 font-heading text-xs font-bold uppercase tracking-[0.22em] text-brand-green;
+  }
+  .label-light {
+    @apply text-white/70;
+  }
+
+  /* Botões em pílula */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 text-[15px] font-semibold leading-none transition-[background-color,color,border-color,transform] duration-200 disabled:pointer-events-none disabled:opacity-60;
+  }
+  .btn-sm {
+    @apply px-5 py-2.5 text-sm;
+  }
+  .btn-lg {
+    @apply px-8 py-4 text-base;
+  }
+  .btn-primary {
+    @apply bg-brand-green text-white hover:bg-brand-green-dark active:translate-y-px;
+  }
+  .btn-navy {
+    @apply bg-brand-navy text-white hover:bg-brand-navy-deep active:translate-y-px;
+  }
+  .btn-light {
+    @apply bg-white text-brand-navy hover:bg-brand-green-soft active:translate-y-px;
+  }
+  .btn-outline {
+    @apply border border-brand-ink/25 bg-transparent text-brand-ink hover:border-brand-green hover:text-brand-green active:translate-y-px;
+  }
+  .btn-outline-light {
+    @apply border border-white/35 bg-transparent text-white hover:border-white hover:bg-white/10 active:translate-y-px;
+  }
+  .btn-whatsapp {
+    @apply bg-whatsapp text-brand-navy-deep hover:bg-whatsapp-dark active:translate-y-px;
+  }
+
+  /* Link com seta que desliza */
+  .link-arrow {
+    @apply inline-flex items-center gap-2 font-semibold text-brand-green;
+  }
+  .link-arrow svg {
+    @apply transition-transform duration-200;
+  }
+  .link-arrow:hover svg {
+    @apply translate-x-1;
+  }
+
+  /* Faixa de sinalização: listras diagonais nas cores da marca */
+  .stripe {
+    height: 6px;
+    background: repeating-linear-gradient(
+      135deg,
+      #1E7A45 0 14px,
+      #0F4C81 14px 28px
+    );
+  }
+
+  /* Letreiro contínuo */
+  .marquee {
+    @apply flex w-max animate-marquee motion-reduce:animate-none;
+  }
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+
+  /* Formulário com campos sublinhados */
+  .field-line {
+    @apply w-full border-0 border-b-2 border-brand-line bg-transparent px-0 py-3 text-base text-brand-ink placeholder:text-brand-muted/60 transition-colors focus:border-brand-green focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0;
+  }
+  .field-label {
+    @apply mb-0.5 block font-heading text-xs font-bold uppercase tracking-[0.14em] text-brand-muted;
+  }
+
+  .section {
+    @apply py-20 lg:py-28;
+  }
+  .section-tight {
+    @apply py-14 lg:py-20;
+  }
+}
+
+/* Scrollbar discreta (apenas navegadores WebKit) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f4f3;
+}
+::-webkit-scrollbar-thumb {
+  background: #b7c3cf;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1E7A45;
+}

@@ -1,0 +1,26 @@
+# Dependências e build
+node_modules/
+dist/
+dist-ssr/
+
+# Logs e cache
+*.log
+npm-debug.log*
+.vite/
+.cache/
+
+# Ambiente e segredos
+.env
+.env.*
+!.env.example
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Arquivos de origem da marca em alta resolução (não publicados)
+assets-originais/
