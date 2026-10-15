@@ -16,3 +16,7 @@ export const openWhatsApp = (text) => {
   const url = text ? buildWhatsAppUrl(text) : WHATSAPP_URL;
   window.open(url, '_blank', 'noopener,noreferrer');
 };
+
+/** Partes do e-mail, para quebrar a linha antes do "@" em telas estreitas. */
+export const EMAIL_USER = EMAIL.split('@')[0];
+export const EMAIL_DOMAIN = EMAIL.split('@')[1];

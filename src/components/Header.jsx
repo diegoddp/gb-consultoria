@@ -74,14 +74,14 @@ const Header = () => {
         </div>
       </div>
 
-      <nav className="container flex h-20 items-center justify-between gap-6 border-b border-brand-line lg:h-[88px]" aria-label="Principal">
+      <nav className="container flex h-20 items-center justify-between gap-3 border-b sm:gap-6 border-brand-line lg:h-[88px]" aria-label="Principal">
         <Link
           to="/"
-          className="flex shrink-0 items-center gap-3"
+          className="flex min-w-0 items-center gap-2.5 sm:gap-3"
           aria-label="GB Consultoria de Segurança do Trabalho - página inicial"
         >
-          <img src="/logo.png" alt="" width="52" height="52" className="h-12 w-12 object-contain lg:h-[52px] lg:w-[52px]" />
-          <span className="flex flex-col font-heading text-[15px] font-bold leading-tight text-brand-navy sm:text-base">
+          <img src="/logo.png" alt="" width="52" height="52" className="h-10 w-10 shrink-0 object-contain min-[380px]:h-12 min-[380px]:w-12 lg:h-[52px] lg:w-[52px]" />
+          <span className="flex flex-col font-heading text-[14px] font-bold leading-tight text-brand-navy min-[380px]:text-[15px] sm:text-base">
             <span>Consultoria de</span>
             <span className="text-brand-green">Segurança do Trabalho</span>
           </span>
@@ -113,7 +113,7 @@ const Header = () => {
         <button
           type="button"
           onClick={() => setIsMenuOpen((open) => !open)}
-          className="-mr-2 rounded-lg p-2 text-brand-navy lg:hidden"
+          className="-mr-2 shrink-0 rounded-lg p-2 text-brand-navy lg:hidden"
           aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={isMenuOpen}
           aria-controls="menu-mobile"

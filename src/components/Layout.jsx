@@ -7,7 +7,7 @@ import { WHATSAPP_URL } from '@/lib/contact';
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col overflow-x-clip">
       {/* Link de pular para o conteúdo: aparece só ao navegar por teclado */}
       <a
         href="#conteudo"

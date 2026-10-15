@@ -12,6 +12,8 @@ import {
   INSTAGRAM_URL,
   PHONE_DISPLAY,
   EMAIL,
+  EMAIL_USER,
+  EMAIL_DOMAIN,
   CITY,
   WHATSAPP_NUMBER,
 } from '@/lib/contact';
@@ -33,7 +35,7 @@ const SERVICO_LABELS = {
 
 const CHANNELS = [
   { icon: Phone, label: 'Telefone e WhatsApp', value: PHONE_DISPLAY, href: `tel:+${WHATSAPP_NUMBER}` },
-  { icon: Mail, label: 'E-mail', value: EMAIL, href: `mailto:${EMAIL}` },
+  { icon: Mail, label: 'E-mail', value: <>{EMAIL_USER}<wbr />@{EMAIL_DOMAIN}</>, href: `mailto:${EMAIL}` },
   { icon: MapPin, label: 'Atendimento', value: `${CITY} e região` },
 ];
 
@@ -100,9 +102,9 @@ const ContatoPage = () => {
       />
 
       <section className="section bg-brand-paper">
-        <div className="container grid gap-10 lg:grid-cols-12">
+        <div className="container grid grid-cols-1 gap-10 lg:grid-cols-12">
           {/* Canais diretos */}
-          <motion.aside {...reveal} className="space-y-5 lg:col-span-5">
+          <motion.aside {...reveal} className="min-w-0 space-y-5 lg:col-span-5">
             {CHANNELS.map((c) => {
               const inner = (
                 <>
@@ -111,16 +113,16 @@ const ContatoPage = () => {
                   </span>
                   <span className="min-w-0">
                     <span className="block text-base text-brand-muted">{c.label}</span>
-                    <span className="block break-words text-xl font-semibold text-brand-navy">{c.value}</span>
+                    <span className="block text-lg font-semibold text-brand-navy sm:text-xl">{c.value}</span>
                   </span>
                 </>
               );
               return c.href ? (
-                <a key={c.label} href={c.href} className="card card-hover flex items-center gap-5">
+                <a key={c.label} href={c.href} className="card card-hover flex items-center gap-4 p-5 sm:gap-5 sm:p-8">
                   {inner}
                 </a>
               ) : (
-                <div key={c.label} className="card flex items-center gap-5">
+                <div key={c.label} className="card flex items-center gap-4 p-5 sm:gap-5 sm:p-8">
                   {inner}
                 </div>
               );
@@ -139,7 +141,7 @@ const ContatoPage = () => {
           </motion.aside>
 
           {/* Formulário */}
-          <motion.div {...reveal} className="card lg:col-span-7 lg:p-10">
+          <motion.div {...reveal} className="card min-w-0 lg:col-span-7 lg:p-10">
             <h2 className="title-3">Solicite um orçamento</h2>
             <p className="mt-3 text-brand-muted">
               Ao enviar, abrimos o WhatsApp com a mensagem pronta para você confirmar.

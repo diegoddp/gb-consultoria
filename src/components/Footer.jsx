@@ -9,6 +9,8 @@ import {
   INSTAGRAM_URL,
   PHONE_DISPLAY,
   EMAIL,
+  EMAIL_USER,
+  EMAIL_DOMAIN,
   CITY,
   WHATSAPP_NUMBER,
 } from '@/lib/contact';
@@ -121,9 +123,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href={`mailto:${EMAIL}`} className="flex items-start gap-3 text-white/75 [overflow-wrap:anywhere] hover:text-white sm:[overflow-wrap:normal] lg:whitespace-nowrap">
+                <a href={`mailto:${EMAIL}`} className="flex items-start gap-3 text-white/75 hover:text-white lg:whitespace-nowrap">
                   <Mail className="mt-1 h-5 w-5 shrink-0 text-brand-green-bright" aria-hidden="true" />
-                  {EMAIL}
+                  <span>{EMAIL_USER}<wbr />@{EMAIL_DOMAIN}</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-white/75">
