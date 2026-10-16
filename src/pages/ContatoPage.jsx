@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { Instagram, Mail, Phone, MapPin, Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import PageHero from '@/components/PageHero';
@@ -22,6 +23,7 @@ import {
   WHATSAPP_NUMBER,
   WEB3FORMS_ACCESS_KEY,
   WEB3FORMS_ENDPOINT,
+  HCAPTCHA_SITEKEY,
 } from '@/lib/contact';
 import { reveal } from '@/lib/motion';
 
@@ -54,6 +56,25 @@ const ContatoPage = () => {
   const [status, setStatus] = useState('idle');
   const [botcheck, setBotcheck] = useState(false);
 
+  // hCaptcha: token de uso único, reiniciado após cada tentativa de envio
+  const captchaRef = useRef(null);
+  const [captchaToken, setCaptchaToken] = useState('');
+  // O widget normal tem 303px; em telas estreitas usa a versão compacta para não estourar a largura
+  const [compactCaptcha, setCompactCaptcha] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 479px)').matches
+  );
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 479px)');
+    const onChange = (e) => setCompactCaptcha(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  const resetCaptcha = () => {
+    setCaptchaToken('');
+    captchaRef.current?.resetCaptcha();
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -85,6 +106,14 @@ const ContatoPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (status === 'sending' || !validate()) return;
+    if (!captchaToken) {
+      toast({
+        title: 'Confirme a verificação',
+        description: 'Marque a caixa "Sou humano" antes de enviar.',
+        variant: 'destructive',
+      });
+      return;
+    }
 
     setStatus('sending');
     try {
@@ -104,6 +133,7 @@ const ContatoPage = () => {
         Mensagem: formData.mensagem.trim() || 'Sem mensagem',
       }).forEach(([key, value]) => payload.append(key, value));
       if (botcheck) payload.append('botcheck', 'on');
+      payload.append('h-captcha-response', captchaToken);
 
       const response = await fetch(WEB3FORMS_ENDPOINT, { method: 'POST', body: payload });
       const result = await response.json().catch(() => ({}));
@@ -111,9 +141,11 @@ const ContatoPage = () => {
 
       setStatus('success');
       setFormData(INITIAL_FORM);
+      resetCaptcha();
     } catch (error) {
       console.error('Falha ao enviar o formulário:', error);
       setStatus('error');
+      resetCaptcha();
       toast({
         title: 'Não foi possível enviar',
         description: 'Tente novamente ou envie sua mensagem pelo WhatsApp.',
@@ -269,6 +301,20 @@ const ContatoPage = () => {
               <div>
                 <label htmlFor="mensagem" className="field-label">Mensagem</label>
                 <textarea id="mensagem" name="mensagem" rows="4" value={formData.mensagem} onChange={handleInputChange} className="field resize-y" />
+              </div>
+
+              {/* Verificação anti-spam exigida pelo Web3Forms */}
+              <div className="min-h-[78px] max-w-full overflow-hidden">
+                <HCaptcha
+                  ref={captchaRef}
+                  sitekey={HCAPTCHA_SITEKEY}
+                  reCaptchaCompat={false}
+                  languageOverride="pt"
+                  size={compactCaptcha ? 'compact' : 'normal'}
+                  onVerify={(token) => setCaptchaToken(token)}
+                  onExpire={() => setCaptchaToken('')}
+                  onError={() => setCaptchaToken('')}
+                />
               </div>
 
               {status === 'error' && (
