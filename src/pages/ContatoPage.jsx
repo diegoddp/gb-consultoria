@@ -99,7 +99,8 @@ const ContatoPage = () => {
         Empresa: formData.empresa.trim() || 'Não informada',
         'E-mail': formData.email.trim(),
         WhatsApp: formData.whatsapp.trim(),
-        'Serviço de interesse': servicoLabel,
+        // Nomes de campo sem acento: o Web3Forms corrompe acentos nos nomes (os valores chegam corretos)
+        Interesse: servicoLabel,
         Mensagem: formData.mensagem.trim() || 'Sem mensagem',
       }).forEach(([key, value]) => payload.append(key, value));
       if (botcheck) payload.append('botcheck', 'on');
