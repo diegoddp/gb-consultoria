@@ -15,6 +15,10 @@ import {
   EMAIL_USER,
   EMAIL_DOMAIN,
   CITY,
+  ADDRESS_FULL,
+  MAPS_URL,
+  CONTACT_PERSON,
+  INSTAGRAM_HANDLE,
   WHATSAPP_NUMBER,
 } from '@/lib/contact';
 import { reveal } from '@/lib/motion';
@@ -34,9 +38,9 @@ const SERVICO_LABELS = {
 };
 
 const CHANNELS = [
-  { icon: Phone, label: 'Telefone e WhatsApp', value: PHONE_DISPLAY, href: `tel:+${WHATSAPP_NUMBER}` },
+  { icon: Phone, label: `WhatsApp · ${CONTACT_PERSON}`, value: PHONE_DISPLAY, href: `tel:+${WHATSAPP_NUMBER}` },
   { icon: Mail, label: 'E-mail', value: <>{EMAIL_USER}<wbr />@{EMAIL_DOMAIN}</>, href: `mailto:${EMAIL}` },
-  { icon: MapPin, label: 'Atendimento', value: `${CITY} e região` },
+  { icon: MapPin, label: `Endereço · atendemos ${CITY} e região`, value: ADDRESS_FULL, href: MAPS_URL, external: true },
 ];
 
 const ContatoPage = () => {
@@ -97,7 +101,7 @@ const ContatoPage = () => {
         crumb="Contato"
         label="Contato"
         title="Fale com a GB Consultoria"
-        subtitle="Solicite um orçamento ou tire suas dúvidas. Respondemos pelo WhatsApp."
+        subtitle={`Solicite um orçamento ou tire suas dúvidas com ${CONTACT_PERSON}. Respondemos pelo WhatsApp.`}
         image="/images/hero-equipe.jpg"
       />
 
@@ -118,7 +122,7 @@ const ContatoPage = () => {
                 </>
               );
               return c.href ? (
-                <a key={c.label} href={c.href} className="card card-hover flex items-center gap-4 p-5 sm:gap-5 sm:p-8">
+                <a key={c.label} href={c.href} {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="card card-hover flex items-center gap-4 p-5 sm:gap-5 sm:p-8">
                   {inner}
                 </a>
               ) : (
@@ -135,7 +139,7 @@ const ContatoPage = () => {
               </a>
               <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn btn-outline flex-1">
                 <Instagram className="h-5 w-5" aria-hidden="true" />
-                Instagram
+                {INSTAGRAM_HANDLE}
               </a>
             </div>
           </motion.aside>

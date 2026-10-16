@@ -2,12 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { reveal } from '@/lib/motion';
 
-// Números tirados do próprio conteúdo do site, sem estimativas.
+// Números tirados da apresentação institucional, sem estimativas.
 const STATS = [
   { value: '2022', label: 'início das atividades' },
-  { value: '3', label: 'frentes de serviço' },
-  { value: '4', label: 'documentos obrigatórios emitidos' },
-  { value: '7', label: 'treinamentos NR' },
+  { value: '5', label: 'setores atendidos' },
+  { value: '8', label: 'treinamentos oferecidos' },
+  { value: '3', label: 'eventos de SST enviados ao eSocial' },
 ];
 
 const StatsStrip = () => (

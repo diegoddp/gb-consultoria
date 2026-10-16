@@ -4,15 +4,17 @@ import { motion } from 'framer-motion';
 import { Check, Target, Gem, ShieldCheck } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 import StatsStrip from '@/components/StatsStrip';
+import ClientsStrip from '@/components/ClientsStrip';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { CITY, WHATSAPP_URL } from '@/lib/contact';
+import { SECTORS } from '@/lib/services';
 import { fadeUp, reveal, revealGroup } from '@/lib/motion';
 
 const POINTS = [
-  { strong: 'Gestão de documentos de SST', rest: ', sempre atualizada' },
-  { strong: 'Emissão de AVCB, CLCB, PGR e PCMSO', rest: '' },
-  { strong: 'Treinamentos NR', rest: ' com certificado para a sua equipe' },
-  { strong: 'Atendimento direto', rest: ` em ${CITY} e região` },
+  { strong: 'Equipe multidisciplinar', rest: ': engenheiros, médicos e técnicos especializados' },
+  { strong: 'Engenheiro de Segurança e Médico do Trabalho', rest: ' legalmente habilitados' },
+  { strong: 'Atendimento passo a passo', rest: ', cuidando de todos os detalhes' },
+  { strong: 'Sede própria em Tietê/SP', rest: ', atendendo toda a região' },
 ];
 
 const PILLARS = [
@@ -29,7 +31,7 @@ const PILLARS = [
   {
     icon: ShieldCheck,
     title: 'Nosso compromisso',
-    text: 'Prevenção que salva, excelência que transforma. Segurança do trabalho tratada como cuidado com pessoas, não só como obrigação.',
+    text: 'Buscar formas inovadoras e inteligentes de cuidar do seu negócio, com soluções práticas, eficientes e sob medida para a sua empresa.',
   },
 ];
 
@@ -40,26 +42,31 @@ const SobrePage = () => {
         <title>Quem somos - GB Consultoria de Segurança do Trabalho em Tietê/SP</title>
         <meta
           name="description"
-          content="Conheça a GB Consultoria, especialista em segurança do trabalho desde 2022. Nossa missão é garantir ambientes seguros e conformidade legal."
+          content="Sediada em Tietê/SP, a GB Consultoria assessora empresas de engenharia, lavanderia, madeireira, construção civil e indústria química em segurança do trabalho."
         />
       </Helmet>
 
       <PageHero
         crumb="Quem somos"
         label="Quem somos"
-        title="Consultoria de Segurança do Trabalho desde 2022"
-        subtitle={`Ajudamos empresas de ${CITY} e região a cumprir as normas e proteger seus colaboradores.`}
+        title="Segurança no trabalho é a arte de preservar a vida"
+        subtitle={`Consultoria de segurança do trabalho sediada em ${CITY}, atendendo empresas de setores diversos desde 2022.`}
         image="/images/sobre-hero.jpg"
       />
 
       <section className="section bg-white">
-        <div className="container grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
-          <motion.div {...reveal}>
+        <div className="container grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
+          <motion.div {...reveal} className="min-w-0">
             <span className="label">A GB Consultoria</span>
-            <h2 className="title-2 mt-4">Soluções especializadas em saúde e segurança do trabalho</h2>
-            <p className="mt-6 text-brand-muted">
-              A GB Consultoria de Segurança do Trabalho oferece soluções especializadas, auxiliando empresas a <strong className="font-semibold text-brand-navy">cumprirem as normas regulamentadoras</strong> e protegerem seus colaboradores.
-            </p>
+            <h2 className="title-2 mt-4">Apoio especializado para o seu negócio</h2>
+            <div className="mt-6 space-y-4 text-brand-muted">
+              <p>
+                Sediada na cidade de Tietê/SP, a <strong className="font-semibold text-brand-navy">GB Consultoria Segurança do Trabalho</strong> trabalha com a finalidade de assessorar seus clientes na área de Segurança do Trabalho.
+              </p>
+              <p>
+                Por atender empresas de setores diversos, temos profundo entendimento das necessidades de cada uma e transferimos nosso conhecimento para resolver desafios de segurança do trabalho, gestão de informações e desenvolvimento de políticas de qualidade.
+              </p>
+            </div>
             <ul className="mt-8 space-y-4">
               {POINTS.map((p) => (
                 <li key={p.strong} className="flex items-start gap-3">
@@ -76,7 +83,7 @@ const SobrePage = () => {
               Fale conosco
             </a>
           </motion.div>
-          <motion.div {...reveal}>
+          <motion.div {...reveal} className="min-w-0">
             <img
               src="/images/equipe.jpg"
               alt="Dois profissionais com capacete conversando em canteiro de obras"
@@ -85,6 +92,23 @@ const SobrePage = () => {
               decoding="async"
             />
           </motion.div>
+        </div>
+
+        <div className="container mt-16">
+          <motion.div {...reveal} className="text-center">
+            <h3 className="title-4">Setores que atendemos</h3>
+          </motion.div>
+          <motion.ul {...revealGroup} className="mt-6 flex flex-wrap justify-center gap-3">
+            {SECTORS.map((s) => (
+              <motion.li
+                key={s}
+                variants={fadeUp}
+                className="rounded-full border-2 border-brand-line bg-white px-5 py-2.5 text-base font-semibold text-brand-navy sm:text-lg"
+              >
+                {s}
+              </motion.li>
+            ))}
+          </motion.ul>
         </div>
       </section>
 
@@ -98,7 +122,7 @@ const SobrePage = () => {
           </motion.div>
           <motion.ul {...revealGroup} className="mt-12 grid gap-6 lg:grid-cols-3">
             {PILLARS.map((p) => (
-              <motion.li key={p.title} variants={fadeUp} className="card">
+              <motion.li key={p.title} variants={fadeUp} className="card min-w-0">
                 <span className="icon-box">
                   <p.icon className="h-7 w-7" aria-hidden="true" />
                 </span>
@@ -107,6 +131,12 @@ const SobrePage = () => {
               </motion.li>
             ))}
           </motion.ul>
+        </div>
+      </section>
+
+      <section className="section bg-white">
+        <div className="container">
+          <ClientsStrip />
         </div>
       </section>
     </>

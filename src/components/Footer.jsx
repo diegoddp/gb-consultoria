@@ -12,6 +12,8 @@ import {
   EMAIL_USER,
   EMAIL_DOMAIN,
   CITY,
+  ADDRESS_LINE,
+  MAPS_URL,
   WHATSAPP_NUMBER,
 } from '@/lib/contact';
 
@@ -128,9 +130,15 @@ const Footer = () => {
                   <span>{EMAIL_USER}<wbr />@{EMAIL_DOMAIN}</span>
                 </a>
               </li>
-              <li className="flex items-start gap-3 text-white/75">
-                <MapPin className="mt-1 h-5 w-5 shrink-0 text-brand-green-bright" aria-hidden="true" />
-                {CITY} e região
+              <li>
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-white/75 hover:text-white">
+                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-brand-green-bright" aria-hidden="true" />
+                  <span>
+                    {ADDRESS_LINE}
+                    <br />
+                    {CITY}
+                  </span>
+                </a>
               </li>
             </ul>
           </div>
