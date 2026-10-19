@@ -8,7 +8,7 @@ import ServiceBlocks from '@/components/ServiceBlocks';
 import StatsStrip from '@/components/StatsStrip';
 import ClientsStrip from '@/components/ClientsStrip';
 import MethodSteps from '@/components/MethodSteps';
-import { WHATSAPP_URL, CITY, ADDRESS_LINE, MAPS_URL } from '@/lib/contact';
+import { WHATSAPP_URL, CITY, SERVICE_AREA, ADDRESS_LINE, MAPS_URL } from '@/lib/contact';
 import { SECTORS } from '@/lib/services';
 import { fadeUp, reveal, revealGroup } from '@/lib/motion';
 
@@ -21,7 +21,7 @@ const REASONS = [
 ];
 
 const ABOUT_POINTS = [
-  { strong: 'Sede em Tietê/SP', rest: ', atendendo toda a região' },
+  { strong: 'Atendimento em Tietê e região', rest: ', com sede em Tietê/SP' },
   { strong: 'Engenheiro de Segurança e Médico do Trabalho', rest: ' na equipe' },
   { strong: 'Documentos, eSocial, AVCB e treinamentos', rest: ' em um só lugar' },
   { strong: 'Foco em conformidade legal', rest: ' e redução de custos operacionais' },
@@ -31,10 +31,10 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>GB Consultoria de Segurança do Trabalho - Tietê/SP</title>
+        <title>GB Consultoria de Segurança do Trabalho - Tietê e região</title>
         <meta
           name="description"
-          content="Consultoria em segurança do trabalho em Tietê/SP: PGR, LTCAT, PCMSO, eSocial SST, AVCB e CLCB, treinamentos NR e palestras para empresas de todos os portes."
+          content="Consultoria em segurança do trabalho para empresas de Tietê e região: PGR, LTCAT, PCMSO, eSocial SST, AVCB e CLCB, treinamentos NR e palestras para empresas de todos os portes."
         />
       </Helmet>
 
@@ -54,7 +54,7 @@ const HomePage = () => {
           <motion.div variants={fadeUp} initial="hidden" animate="show" className="max-w-3xl">
             <span className="label label-light">Bem-vindo à GB</span>
             <h1 className="title-hero mt-5 text-white">
-              Gestão de <span className="text-brand-green-bright">Segurança do Trabalho</span> para sua empresa em {CITY}.
+              Gestão de <span className="text-brand-green-bright">Segurança do Trabalho</span> para empresas de {SERVICE_AREA}.
             </h1>
             <p className="mt-7 max-w-2xl text-xl leading-relaxed text-white/85">
               PGR, LTCAT, PCMSO, eSocial, AVCB e treinamentos com uma equipe de engenheiros, médicos e técnicos especializados.
@@ -98,9 +98,9 @@ const HomePage = () => {
         <div className="container grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
           <motion.div {...reveal} className="min-w-0">
             <span className="label">Quem somos</span>
-            <h2 className="title-2 mt-4">Consultoria de Segurança do Trabalho em {CITY}</h2>
+            <h2 className="title-2 mt-4">Consultoria de Segurança do Trabalho em {SERVICE_AREA}</h2>
             <p className="mt-6 text-brand-muted">
-              Sediada em Tietê, a GB assessora empresas na área de Segurança do Trabalho. Por atender setores diversos, temos <strong className="font-semibold text-brand-navy">profundo entendimento das necessidades das empresas</strong> e transferimos esse conhecimento para resolver seus desafios de segurança, gestão de informações e políticas de qualidade.
+              Com sede em Tietê, a GB assessora empresas de toda a região na área de Segurança do Trabalho. Por atender setores diversos, temos <strong className="font-semibold text-brand-navy">profundo entendimento das necessidades das empresas</strong> e transferimos esse conhecimento para resolver seus desafios de segurança, gestão de informações e políticas de qualidade.
             </p>
             <ul className="mt-8 space-y-4">
               {ABOUT_POINTS.map((p) => (
@@ -138,8 +138,8 @@ const HomePage = () => {
             >
               <MapPin className="h-7 w-7 shrink-0 text-brand-green-bright" aria-hidden="true" />
               <span>
-                <span className="block font-semibold">Sede em {CITY}</span>
-                <span className="block text-base text-white/75">{ADDRESS_LINE}</span>
+                <span className="block font-semibold">Atendemos {SERVICE_AREA}</span>
+                <span className="block text-base text-white/75">Sede: {ADDRESS_LINE}, {CITY}</span>
               </span>
             </a>
           </motion.div>

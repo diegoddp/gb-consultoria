@@ -15,7 +15,7 @@ import {
   EMAIL,
   EMAIL_USER,
   EMAIL_DOMAIN,
-  CITY,
+  SERVICE_AREA,
   ADDRESS_FULL,
   MAPS_URL,
   CONTACT_PERSON,
@@ -44,7 +44,7 @@ const SERVICO_LABELS = {
 const CHANNELS = [
   { icon: Phone, label: `WhatsApp · ${CONTACT_PERSON}`, value: PHONE_DISPLAY, href: `tel:+${WHATSAPP_NUMBER}` },
   { icon: Mail, label: 'E-mail', value: <>{EMAIL_USER}<wbr />@{EMAIL_DOMAIN}</>, href: `mailto:${EMAIL}` },
-  { icon: MapPin, label: `Endereço · atendemos ${CITY} e região`, value: ADDRESS_FULL, href: MAPS_URL, external: true },
+  { icon: MapPin, label: `Sede · atendemos ${SERVICE_AREA}`, value: ADDRESS_FULL, href: MAPS_URL, external: true },
 ];
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -176,7 +176,7 @@ const ContatoPage = () => {
         <title>Contato - GB Consultoria de Segurança do Trabalho</title>
         <meta
           name="description"
-          content="Entre em contato com a GB Consultoria em Tietê/SP. Solicite um orçamento para documentação SST, AVCB, CLCB, PGR, PCMSO e treinamentos NR."
+          content="Entre em contato com a GB Consultoria, que atende empresas de Tietê e região. Solicite um orçamento para documentação SST, AVCB, CLCB, PGR, PCMSO e treinamentos NR."
         />
       </Helmet>
 

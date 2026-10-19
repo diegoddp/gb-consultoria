@@ -12,6 +12,7 @@ import {
   EMAIL_USER,
   EMAIL_DOMAIN,
   CITY,
+  SERVICE_AREA,
   ADDRESS_LINE,
   MAPS_URL,
   WHATSAPP_NUMBER,
@@ -65,7 +66,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="mt-6 max-w-sm text-white/75">
-              Compromisso com a saúde, a segurança e a conformidade legal da sua empresa.
+              Segurança do trabalho para empresas de {SERVICE_AREA}, com compromisso com a saúde e a conformidade legal.
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a

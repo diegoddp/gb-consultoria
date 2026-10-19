@@ -5,7 +5,9 @@ export const CONTACT_PERSON = 'Gustavo Botelho';
 export const WHATSAPP_NUMBER = '5515991769027'; // formato internacional, sem símbolos
 export const PHONE_DISPLAY = '(15) 99176-9027';
 export const EMAIL = 'contato@gbconsultoriasst.com.br';
-export const CITY = 'Tietê - SP';
+export const CITY = 'Tietê - SP'; // cidade da sede (endereço)
+// Área de atendimento: usar sempre esta frase ao falar de onde a GB atende, nunca só a cidade da sede.
+export const SERVICE_AREA = 'Tietê e região';
 export const ADDRESS_LINE = 'Rua Francisco Cândido, 56 – Santa Maria';
 export const ADDRESS_FULL = `${ADDRESS_LINE} – Tietê/SP`;
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Rua Francisco Cândido, 56, Santa Maria, Tietê, SP')}`;
