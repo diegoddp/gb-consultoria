@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<meta name="theme-color" content="#1E7A45" />
+		<title data-react-helmet="true">Página não encontrada | GB Consultoria</title>
+<meta data-react-helmet="true" name="robots" content="noindex"/><meta data-react-helmet="true" property="og:title" content="Página não encontrada | GB Consultoria"/><meta data-react-helmet="true" property="og:image" content="https://gbconsultoriasst.com.br/images/og-image.jpg"/><meta data-react-helmet="true" property="og:image:width" content="1200"/><meta data-react-helmet="true" property="og:image:height" content="630"/>
+
+<script data-react-helmet="true" type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://gbconsultoriasst.com.br/#empresa","name":"GB Consultoria de Segurança do Trabalho","alternateName":"GB Consultoria SST","description":"Consultoria em segurança do trabalho para empresas de Tietê e região: PGR, LTCAT, PCMSO, eSocial SST, AVCB e CLCB, treinamentos NR e palestras.","url":"https://gbconsultoriasst.com.br/","logo":"https://gbconsultoriasst.com.br/logo.png","image":"https://gbconsultoriasst.com.br/images/og-image.jpg","telephone":"+5515991769027","email":"contato@gbconsultoriasst.com.br","foundingDate":"2022","founder":{"@type":"Person","name":"Gustavo Botelho"},"address":{"@type":"PostalAddress","streetAddress":"Rua Francisco Cândido, 56, Santa Maria","addressLocality":"Tietê","addressRegion":"SP","addressCountry":"BR"},"areaServed":[{"@type":"City","name":"Tietê"},{"@type":"State","name":"São Paulo"}],"sameAs":["https://instagram.com/gb.consultorias"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Serviços de segurança do trabalho","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Gestão de Segurança do Trabalho","description":"PGR, LTCAT, PCMSO e laudos com base em avaliação técnica dos riscos ocupacionais."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"eSocial SST","description":"Geração e envio dos eventos S-2210, S-2220 e S-2240 ao eSocial."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AVCB e CLCB","description":"Adequação da edificação e documentação para emissão junto ao Corpo de Bombeiros."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Treinamentos e Palestras","description":"Treinamentos NR, primeiros socorros, 5S, SIPAT e palestras de saúde e liderança."}}]}}</script>
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="GB Consultoria de Segurança do Trabalho" />
+		<meta property="og:locale" content="pt_BR" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<script type="module" crossorigin src="/assets/index-IwSDnOD3.js"></script>
+		<link rel="stylesheet" crossorigin href="/assets/index-dDU96jzh.css">
+		<script type="module">
+window.onerror = (message, source, lineno, colno, errorObj) => {
+	const errorDetails = errorObj ? JSON.stringify({
+		name: errorObj.name,
+		message: errorObj.message,
+		stack: errorObj.stack,
+		source,
+		lineno,
+		colno,
+	}) : null;
+
+	window.parent.postMessage({
+		type: 'horizons-runtime-error',
+		message,
+		error: errorDetails
+	}, '*');
+};
+</script>
+		<script type="module">
+const observer = new MutationObserver((mutations) => {
+	for (const mutation of mutations) {
+		for (const addedNode of mutation.addedNodes) {
+			if (
+				addedNode.nodeType === Node.ELEMENT_NODE &&
+				(
+					addedNode.tagName?.toLowerCase() === 'vite-error-overlay' ||
+					addedNode.classList?.contains('backdrop')
+				)
+			) {
+				handleViteOverlay(addedNode);
+			}
+		}
+	}
+});
+
+observer.observe(document.documentElement, {
+	childList: true,
+	subtree: true
+});
+
+function handleViteOverlay(node) {
+	if (!node.shadowRoot) {
+		return;
+	}
+
+	const backdrop = node.shadowRoot.querySelector('.backdrop');
+
+	if (backdrop) {
+		const overlayHtml = backdrop.outerHTML;
+		const parser = new DOMParser();
+		const doc = parser.parseFromString(overlayHtml, 'text/html');
+		const messageBodyElement = doc.querySelector('.message-body');
+		const fileElement = doc.querySelector('.file');
+		const messageText = messageBodyElement ? messageBodyElement.textContent.trim() : '';
+		const fileText = fileElement ? fileElement.textContent.trim() : '';
+		const error = messageText + (fileText ? ' File:' + fileText : '');
+
+		window.parent.postMessage({
+			type: 'horizons-vite-error',
+			error,
+		}, '*');
+	}
+}
+</script>
+		<script type="module">
+const originalConsoleError = console.error;
+console.error = function(...args) {
+	originalConsoleError.apply(console, args);
+
+	let errorString = '';
+
+	for (let i = 0; i < args.length; i++) {
+		const arg = args[i];
+		if (arg instanceof Error) {
+			errorString = arg.stack || `${arg.name}: ${arg.message}`;
+			break;
+		}
+	}
+
+	if (!errorString) {
+		errorString = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
+	}
+
+	window.parent.postMessage({
+		type: 'horizons-console-error',
+		error: errorString
+	}, '*');
+};
+</script>
+		<script type="module">
+const originalFetch = window.fetch;
+
+window.fetch = function(...args) {
+	const url = args[0] instanceof Request ? args[0].url : args[0];
+
+	// Skip WebSocket URLs
+	if (url.startsWith('ws:') || url.startsWith('wss:')) {
+		return originalFetch.apply(this, args);
+	}
+
+	return originalFetch.apply(this, args)
+		.then(async response => {
+			const contentType = response.headers.get('Content-Type') || '';
+
+			// Exclude HTML document responses
+			const isDocumentResponse =
+				contentType.includes('text/html') ||
+				contentType.includes('application/xhtml+xml');
+
+			if (!response.ok && !isDocumentResponse) {
+					const responseClone = response.clone();
+					const errorFromRes = await responseClone.text();
+					const requestUrl = response.url;
+					console.error(`Fetch error from ${requestUrl}: ${errorFromRes}`);
+			}
+
+			return response;
+		})
+		.catch(error => {
+			if (!url.match(/.html?$/i)) {
+				console.error(error);
+			}
+
+			throw error;
+		});
+};
+</script>
+		<script type="module">
+if (window.navigation && window.self !== window.top) {
+	window.navigation.addEventListener('navigate', (event) => {
+		const url = event.destination.url;
+
+		try {
+			const destinationUrl = new URL(url);
+			const destinationOrigin = destinationUrl.origin;
+			const currentOrigin = window.location.origin;
+
+			if (destinationOrigin === currentOrigin) {
+				return;
+			}
+		} catch (error) {
+			return;
+		}
+
+		window.parent.postMessage({
+			type: 'horizons-navigation-error',
+			url,
+		}, '*');
+	});
+}
+</script>
+	</head>
+	<body>
+		<div id="root"><div class="flex min-h-screen flex-col overflow-x-clip"><a href="#conteudo" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-green focus:px-4 focus:py-2 focus:text-white">Pular para o conteúdo</a><header class="sticky top-0 z-50 bg-white transition-shadow"><div class="bg-brand-navy-deep text-white"><div class="container flex h-11 items-center justify-between gap-4 text-[15px]"><div class="flex items-center gap-6"><a href="tel:+5515991769027" class="inline-flex items-center gap-2 text-white/85 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone h-4 w-4 text-brand-green-bright" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>(15) 99176-9027</a><a href="mailto:contato@gbconsultoriasst.com.br" class="hidden items-center gap-2 text-white/85 hover:text-white sm:inline-flex"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-4 w-4 text-brand-green-bright" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>contato@gbconsultoriasst.com.br</a></div><div class="flex items-center gap-2"><a href="https://wa.me/5515991769027" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 hover:bg-white/20"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" class="shrink-0 h-4 w-4"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path></svg></a><a href="https://instagram.com/gb.consultorias" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 hover:bg-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram h-4 w-4"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a></div></div></div><nav class="container flex h-20 items-center justify-between gap-3 border-b sm:gap-6 border-brand-line lg:h-[88px]" aria-label="Principal"><a class="flex min-w-0 items-center gap-2.5 sm:gap-3" aria-label="GB Consultoria de Segurança do Trabalho - página inicial" href="/" data-discover="true"><img src="/logo.png" alt="" width="52" height="52" class="h-10 w-10 shrink-0 object-contain min-[380px]:h-12 min-[380px]:w-12 lg:h-[52px] lg:w-[52px]"/><span class="flex flex-col font-heading text-[14px] font-bold leading-tight text-brand-navy min-[380px]:text-[15px] sm:text-base"><span>Consultoria de</span><span class="text-brand-green">Segurança do Trabalho</span></span></a><ul class="hidden items-center gap-8 lg:flex"><li><a class="relative py-2 text-[17px] font-semibold transition-colors hover:text-brand-green text-brand-navy" href="/" data-discover="true">Início</a></li><li><a class="relative py-2 text-[17px] font-semibold transition-colors hover:text-brand-green text-brand-navy" href="/sobre" data-discover="true">Quem somos</a></li><li><a class="relative py-2 text-[17px] font-semibold transition-colors hover:text-brand-green text-brand-navy" href="/servicos" data-discover="true">Serviços</a></li><li><a class="relative py-2 text-[17px] font-semibold transition-colors hover:text-brand-green text-brand-navy" href="/contato" data-discover="true">Contato</a></li></ul><a class="btn btn-navy btn-sm hidden lg:inline-flex" href="/contato" data-discover="true">Solicitar orçamento</a><button type="button" class="-mr-2 shrink-0 rounded-lg p-2 text-brand-navy lg:hidden" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-8 w-8"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button></nav></header><main id="conteudo" class="flex-1"><section class="section bg-brand-blue-soft"><div class="container max-w-3xl"><span class="label">Erro 404</span><h1 class="title-1 mt-3">Essa página não existe.</h1><p class="lead mt-6">O endereço foi movido ou nunca existiu. Volte para o início ou fale com a gente.</p><div class="mt-10 flex flex-col gap-4 sm:flex-row"><a class="btn btn-primary" href="/" data-discover="true">Ir para o início<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right h-5 w-5" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a><a href="https://wa.me/5515991769027" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" class="shrink-0 h-5 w-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path></svg>Falar no WhatsApp</a></div></div></section></main><footer class="mt-auto"><section class="bg-brand-navy-deep text-white"><div class="container py-20 text-center lg:py-24"><h2 class="title-2 mx-auto max-w-3xl text-white">Conformidade legal com tranquilidade para a sua empresa</h2><p class="mx-auto mt-5 max-w-2xl text-xl text-white/80">Fale com a GB e receba uma proposta sob medida para documentos e treinamentos de SST.</p><div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row"><a class="btn btn-light" href="/contato" data-discover="true">Solicitar proposta</a><a href="https://wa.me/5515991769027" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" class="shrink-0 h-5 w-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path></svg>Falar no WhatsApp</a></div></div></section><div class="bg-brand-navy text-white"><div class="container grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-12 lg:py-20"><div class="lg:col-span-3"><a class="inline-flex items-center gap-3" aria-label="GB Consultoria de Segurança do Trabalho - página inicial" href="/" data-discover="true"><span class="flex h-14 w-14 items-center justify-center rounded-full bg-white"><img src="/logo.png" alt="" width="40" height="40" class="h-10 w-10 object-contain"/></span><span class="flex flex-col font-heading text-base font-bold leading-tight"><span>Consultoria de</span><span class="text-brand-green-bright">Segurança do Trabalho</span></span></a><p class="mt-6 max-w-sm text-white/75">Segurança do trabalho para empresas de <!-- -->Tietê e região<!-- -->, com compromisso com a saúde e a conformidade legal.</p><div class="mt-6 flex items-center gap-3"><a href="https://wa.me/5515991769027" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-whatsapp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" class="shrink-0 h-5 w-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path></svg></a><a href="https://instagram.com/gb.consultorias" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram h-5 w-5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a></div></div><nav aria-label="Institucional" class="lg:col-span-2"><h3 class="text-lg font-bold text-white">Institucional</h3><ul class="mt-5 space-y-3"><li><a class="text-white/75 transition-colors hover:text-white" href="/" data-discover="true">Início</a></li><li><a class="text-white/75 transition-colors hover:text-white" href="/sobre" data-discover="true">Quem somos</a></li><li><a class="text-white/75 transition-colors hover:text-white" href="/servicos" data-discover="true">Serviços</a></li><li><a class="text-white/75 transition-colors hover:text-white" href="/contato" data-discover="true">Contato</a></li></ul></nav><nav aria-label="Serviços" class="lg:col-span-3"><h3 class="text-lg font-bold text-white">Serviços</h3><ul class="mt-5 space-y-3"><li><a class="text-white/75 transition-colors hover:text-white" href="/servicos#seguranca-do-trabalho" data-discover="true">Gestão de Segurança do Trabalho</a></li><li><a class="text-white/75 transition-colors hover:text-white" href="/servicos#esocial" data-discover="true">eSocial SST</a></li><li><a class="text-white/75 transition-colors hover:text-white" href="/servicos#corpo-de-bombeiros" data-discover="true">AVCB e CLCB</a></li><li><a class="text-white/75 transition-colors hover:text-white" href="/servicos#treinamentos" data-discover="true">Treinamentos e Palestras</a></li></ul></nav><div class="lg:col-span-4"><h3 class="text-lg font-bold text-white">Contato</h3><ul class="mt-5 space-y-4"><li><a href="tel:+5515991769027" class="flex items-start gap-3 text-white/75 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone mt-1 h-5 w-5 shrink-0 text-brand-green-bright" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>(15) 99176-9027</a></li><li><a href="mailto:contato@gbconsultoriasst.com.br" class="flex items-start gap-3 text-white/75 hover:text-white lg:whitespace-nowrap"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail mt-1 h-5 w-5 shrink-0 text-brand-green-bright" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg><span>contato<wbr/>@<!-- -->gbconsultoriasst.com.br</span></a></li><li><a href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Francisco%20C%C3%A2ndido%2C%2056%2C%20Santa%20Maria%2C%20Tiet%C3%AA%2C%20SP" target="_blank" rel="noopener noreferrer" class="flex items-start gap-3 text-white/75 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mt-1 h-5 w-5 shrink-0 text-brand-green-bright" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Rua Francisco Cândido, 56 – Santa Maria<br/>Tietê - SP</span></a></li></ul></div></div><div class="border-t border-white/10"><div class="container flex flex-col gap-2 py-6 pr-20 text-base text-white/60 lg:flex-row lg:pr-12 lg:items-center lg:justify-between"><span>© <!-- -->2026<!-- --> <!-- -->GB Consultoria de Segurança do Trabalho<!-- -->. Todos os direitos reservados.</span><span>Desenvolvido por<!-- --> <a href="https://diegodiasp.com/" target="_blank" rel="noopener" class="font-semibold text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline">DD Web Developer</a></span></div></div></div></footer><a href="https://wa.me/5515991769027" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg shadow-black/20 transition-transform hover:scale-105 hover:bg-whatsapp-dark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" class="shrink-0 h-8 w-8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path></svg></a></div><div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events:none"><ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]"></ol></div></div>
+	</body>
+</html>
