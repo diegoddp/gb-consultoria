@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import { Check, Target, Gem, ShieldCheck } from 'lucide-react';
 import PageHero from '@/components/PageHero';
@@ -38,13 +38,11 @@ const PILLARS = [
 const SobrePage = () => {
   return (
     <>
-      <Helmet>
-        <title>Quem somos - GB Consultoria de Segurança do Trabalho em Tietê e região</title>
-        <meta
-          name="description"
-          content="Com sede em Tietê/SP, a GB Consultoria atende empresas de toda a região nos setores de engenharia, lavanderia, madeireira, construção civil e indústria química em segurança do trabalho."
-        />
-      </Helmet>
+      <Seo
+        title="Quem somos | GB Consultoria de Segurança do Trabalho"
+        description="Com sede em Tietê/SP, a GB Consultoria atende empresas de toda a região nos setores de engenharia, lavanderia, madeireira, construção civil e indústria química em segurança do trabalho."
+        path="/sobre"
+      />
 
       <PageHero
         crumb="Quem somos"

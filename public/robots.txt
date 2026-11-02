@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://gbconsultoriasst.com.br/sitemap.xml

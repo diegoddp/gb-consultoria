@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import { Routes, Route } from 'react-router-dom';
 import { MotionConfig } from 'framer-motion';
 import Layout from '@/components/Layout';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -9,10 +10,16 @@ import ServicosPage from '@/pages/ServicosPage';
 import ContatoPage from '@/pages/ContatoPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 import { Toaster } from '@/components/ui/toaster';
+import { LOCAL_BUSINESS_JSONLD } from '@/lib/seo';
 
+// O roteador fica fora do App: BrowserRouter no navegador (main.jsx) e
+// StaticRouter na pré-renderização (entry-server.jsx).
 function App() {
   return (
-    <BrowserRouter>
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(LOCAL_BUSINESS_JSONLD)}</script>
+      </Helmet>
       {/* reducedMotion="user" respeita a preferência do sistema por menos animação */}
       <MotionConfig reducedMotion="user">
         <ScrollToTop />
@@ -27,7 +34,7 @@ function App() {
         </Layout>
         <Toaster />
       </MotionConfig>
-    </BrowserRouter>
+    </>
   );
 }
 

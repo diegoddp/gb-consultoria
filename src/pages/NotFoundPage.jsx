@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
@@ -8,10 +8,7 @@ import { WHATSAPP_URL } from '@/lib/contact';
 const NotFoundPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Página não encontrada - GB Consultoria de Segurança do Trabalho</title>
-        <meta name="robots" content="noindex" />
-      </Helmet>
+      <Seo title="Página não encontrada | GB Consultoria" />
 
       <section className="section bg-brand-blue-soft">
         <div className="container max-w-3xl">

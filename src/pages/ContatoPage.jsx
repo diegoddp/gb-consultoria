@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { Instagram, Mail, Phone, MapPin, Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
@@ -172,13 +172,11 @@ const ContatoPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Contato - GB Consultoria de Segurança do Trabalho</title>
-        <meta
-          name="description"
-          content="Entre em contato com a GB Consultoria, que atende empresas de Tietê e região. Solicite um orçamento para documentação SST, AVCB, CLCB, PGR, PCMSO e treinamentos NR."
-        />
-      </Helmet>
+      <Seo
+        title="Contato e orçamento | GB Consultoria - Tietê e região"
+        description="Entre em contato com a GB Consultoria, que atende empresas de Tietê e região. Solicite um orçamento para documentação SST, AVCB, CLCB, PGR, PCMSO e treinamentos NR."
+        path="/contato"
+      />
 
       <PageHero
         crumb="Contato"

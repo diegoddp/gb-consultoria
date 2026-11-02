@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { Link } from 'react-router-dom';
 import PageHero from '@/components/PageHero';
 import ServiceBlocks from '@/components/ServiceBlocks';
@@ -9,13 +9,11 @@ import { SERVICES } from '@/lib/services';
 const ServicosPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Serviços - GB Consultoria de Segurança do Trabalho</title>
-        <meta
-          name="description"
-          content="PGR, LTCAT, PCMSO, eSocial SST (S-2210, S-2220, S-2240), AVCB e CLCB, treinamentos NR, primeiros socorros, 5S, SIPAT e palestras em Tietê/SP e região."
-        />
-      </Helmet>
+      <Seo
+        title="PGR, PCMSO, LTCAT, AVCB e Treinamentos NR | GB Consultoria"
+        description="PGR, LTCAT, PCMSO, eSocial SST (S-2210, S-2220, S-2240), AVCB e CLCB, treinamentos NR, primeiros socorros, 5S, SIPAT e palestras em Tietê/SP e região."
+        path="/servicos"
+      />
 
       <PageHero
         crumb="Serviços"

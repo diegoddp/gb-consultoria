@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Check, MapPin, Users, Factory, Footprints, Ruler } from 'lucide-react';
@@ -30,13 +30,11 @@ const ABOUT_POINTS = [
 const HomePage = () => {
   return (
     <>
-      <Helmet>
-        <title>GB Consultoria de Segurança do Trabalho - Tietê e região</title>
-        <meta
-          name="description"
-          content="Consultoria em segurança do trabalho para empresas de Tietê e região: PGR, LTCAT, PCMSO, eSocial SST, AVCB e CLCB, treinamentos NR e palestras para empresas de todos os portes."
-        />
-      </Helmet>
+      <Seo
+        title="Segurança do Trabalho em Tietê e região | GB Consultoria"
+        description="Consultoria em segurança do trabalho para empresas de Tietê e região: PGR, LTCAT, PCMSO, eSocial SST, AVCB e CLCB, treinamentos NR e palestras para empresas de todos os portes."
+        path="/"
+      />
 
       {/* Hero com foto */}
       <section className="relative isolate overflow-hidden bg-brand-navy text-white">
@@ -44,7 +42,7 @@ const HomePage = () => {
           src="/images/hero-equipe.jpg"
           alt=""
           className="absolute inset-0 -z-20 h-full w-full object-cover"
-          fetchPriority="high"
+          fetchpriority="high"
         />
         <div
           aria-hidden="true"
