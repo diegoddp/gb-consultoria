@@ -146,8 +146,20 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/10">
-          <div className="container py-6 text-base text-white/60">
-            © {new Date().getFullYear()} {COMPANY_NAME}. Todos os direitos reservados.
+          {/* pr-20 até lg: espaço para o botão flutuante do WhatsApp não cobrir o texto no celular */}
+          <div className="container flex flex-col gap-2 py-6 pr-20 text-base text-white/60 lg:flex-row lg:pr-12 lg:items-center lg:justify-between">
+            <span>© {new Date().getFullYear()} {COMPANY_NAME}. Todos os direitos reservados.</span>
+            <span>
+              Desenvolvido por{' '}
+              <a
+                href="https://diegodiasp.com/"
+                target="_blank"
+                rel="noopener"
+                className="font-semibold text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline"
+              >
+                DD Web Developer
+              </a>
+            </span>
           </div>
         </div>
       </div>
